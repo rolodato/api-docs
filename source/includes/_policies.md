@@ -55,10 +55,10 @@
 }
 ```
 
-Policies are sets of Policys that can be attached to an Organization or Project
+Policies are sets of `Rule`s that can be attached to an `Organization` or `Project`
 to configure how FOSSA handles the components of projects.
 
-To modify the rules in a policy, use the [Rule](#rules) operations.
+To modify the rules in a policy, use the [`Rule`](#rules) operations.
 
 ## Create Policy
 

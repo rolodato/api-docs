@@ -140,7 +140,7 @@
 }
 ```
 
-A License refers to a particular type of license that FOSSA has discovered.
+A `License` refers to a particular type of license that FOSSA has discovered.
 
 ## List Licenses
 

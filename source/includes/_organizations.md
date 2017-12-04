@@ -124,7 +124,7 @@
 }
 ```
 
-Teams of users are grouped together in Organizations. Users can only belong to
+Teams of `User`s are grouped together in an `Organization`. A `User` can only belong to
 one organization at a time.
 
 ## Retrieve Organization

@@ -26,8 +26,8 @@
 ```
 
 A rule describes the actions that FOSSA takes to handle a particular component
-when certain conditions are met. Many rules make up a Policy, and each project
-and organization may have its own Policy to configure how FOSSA handles
+when certain conditions are met. Many rules make up a `Policy`, and each `Project`
+and `Organization` may have its own `Policy` to configure how FOSSA handles
 different components.
 
 ## Create Rule

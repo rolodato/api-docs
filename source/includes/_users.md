@@ -80,9 +80,8 @@
 }
 ```
 
-Organizations contain many Users. Each user corresponds to an account signed up
-with the current FOSSA instance. All user endpoints are available at
-`/api/users`.
+`Organization`s contain many `User`s. Each `User` corresponds to an account signed up
+with the current FOSSA instance.
 
 ## List Users
 
