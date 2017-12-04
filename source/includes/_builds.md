@@ -1,5 +1,4 @@
 # Builds
-## Search Builds
 ## List Builds
 ## Retrieve Build
 
