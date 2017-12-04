@@ -14,8 +14,8 @@ includes:
   - policies
   - rules
   - projects
-  - builds
   - revisions
+  - builds
   - licenses
 
 search: true
