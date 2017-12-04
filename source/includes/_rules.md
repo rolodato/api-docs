@@ -96,7 +96,7 @@ http 'http://api.fossa.io/api/rules' 'Authorization: token 123456789'
 ];
 ```
 
-Lists all rules.
+Lists all rules in your organization.
 
 This endpoint supports the standard filtering, search, sorting, and pagination
 operators.
