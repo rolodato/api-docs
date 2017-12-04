@@ -173,7 +173,7 @@ Invite users to an organization by email.
 
 ### HTTP Request
 
-`POST https://api.fossa.io/api/organizations/:organizationId/invite`
+`POST https://api.fossa.io/api/organizations/:organizationId/invite?emails[]=test@example.com`
 
 ### Path parameters
 

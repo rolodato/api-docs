@@ -154,7 +154,7 @@ http 'http://api.fossa.io/api/policies/4679' 'Authorization: token 123456789'
 }
 ```
 
-Retrieve a Policy by ID.
+Retrieve a `Policy` by ID.
 
 ### HTTP Request
 
@@ -187,7 +187,7 @@ http --form PUT 'http://api.fossa.io/api/policies/4679' default_action=APPROVE '
 }
 ```
 
-Updates Policies.
+Updates `Policy`s.
 
 ### HTTP Request
 
@@ -217,7 +217,7 @@ http DELETE 'http://api.fossa.io/api/policies/4679' 'Authorization: token 123456
 {}
 ```
 
-Delete a Policy by ID.
+Delete a `Policy` by ID.
 
 ### HTTP Request
 

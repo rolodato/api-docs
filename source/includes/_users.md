@@ -128,12 +128,155 @@ operators.
 
 ## Retrieve User
 
+```bash
+http 'http://api.fossa.io/api/users/132' 'Authorization: token 123456789'
+```
+
+> Returns data in the shape of:
+
+```js
+{
+  /* User */
+}
+```
+
+Retrieve a `User` by ID.
+
+### HTTP Request
+
+`GET https://api.fossa.io/api/users/:userId`
+
+### Path parameters
+
+| Parameter | Type     | Required? | Description                     |
+| --------- | -------- | --------- | ------------------------------- |
+| `:userId` | `number` | Y         | The ID of the user to retrieve. |
+
 ## Update User
 
-## Register New User
+```bash
+http --form PUT 'http://api.fossa.io/api/users/132' password=correcthorsebatterystaple 'Authorization: token 123456789'
+```
 
-## Set Password
+> Returns data in the shape of:
+
+```js
+// The updated User.
+{
+  "id": 132,
+  "username": "test",
+  "email": "test@fossa.io",
+  "email_verified": false,
+  "demo": false,
+  "super": false,
+  "joined": "2017-02-23T02:03:59.000Z",
+  "last_visit": "2017-02-23T02:03:59.000Z",
+  "terms_agreed": "2017-12-02T01:14:11.508Z",
+  "full_name": null,
+  "phone": "",
+  "role": "",
+  "organizationId": 90,
+  "createdAt": "2017-02-23T02:03:59.738Z",
+  "updatedAt": "2017-12-04T12:00:34.188Z",
+  "organization": {
+    "fetcher_config": {},
+    "id": 90,
+    "title": "test-abe",
+    "access_level": "premium",
+    "createdAt": "2017-02-23T02:04:11.628Z",
+    "updatedAt": "2017-12-04T07:43:58.574Z",
+    "defaultPolicyId": 251,
+    "jira": { "credentials": {}, "base_url": null, "enabled": false },
+    "slack": [],
+    "podSources": []
+  },
+  "github": null,
+  "bitbucketCloud": null,
+  "tokens": [
+    {
+      "id": 352,
+      "userId": 132,
+      "organizationId": null,
+      "email": null,
+      "type": "api",
+      "token": "123456789",
+      "callbackUrl": null,
+      "isDisabled": false,
+      "createdAt": "2017-12-02T01:14:38.882Z",
+      "updatedAt": "2017-12-02T01:14:38.882Z"
+    }
+  ]
+}
+```
+
+Updates `User`s.
+
+### HTTP Request
+
+`PUT http://api.fossa.io/api/users/:userId`
+
+### Path parameters
+
+| Parameter | Type     | Required? | Description                   |
+| --------- | -------- | --------- | ----------------------------- |
+| `:userId` | `number` | Y         | The ID of the user to update. |
+
+### Query parameters
+
+| Parameter  | Type         | Required? | Description                                                             |
+| ---------- | ------------ | --------- | ----------------------------------------------------------------------- |
+| `${field}` | `keyof User` | N         | Sets the field's value. If not specified, fields will remain unchanged. |
 
 ## Create API Token
 
+```bash
+http POST 'http://api.fossa.io/api/user/:userId/api_token' 'Authorization: token 123456789'
+```
+
+> Returns data in the shape of:
+
+```json
+{}
+```
+
+Creates a new API token. Load the user to see the created token.
+
+### HTTP Request
+
+`POST https://api.fossa.io/api/user/:userId/api_token`
+
+### Path parameters
+
+| Parameter | Type     | Required? | Description                               |
+| --------- | -------- | --------- | ----------------------------------------- |
+| `:userId` | `number` | Y         | The ID of the user to create a token for. |
+
 ## Revoke API Token
+
+```bash
+http DELETE 'http://api.fossa.io/api/user/:userId/api_token?token=123456789' 'Authorization: token 123456789'
+```
+
+> Returns data in the shape of:
+
+```json
+"Token deleted"
+```
+
+Revokes an API token.
+
+### HTTP Request
+
+`POST https://api.fossa.io/api/user/:userId/api_token`
+
+### Query parameters
+
+| Parameter | Type     | Required? | Description          |
+| --------- | -------- | --------- | -------------------- |
+| `token`   | `string` | Y         | The token to revoke. |
+
+### Path parameters
+
+| Parameter | Type     | Required? | Description                               |
+| --------- | -------- | --------- | ----------------------------------------- |
+| `:userId` | `number` | Y         | The ID of the user to create a token for. |

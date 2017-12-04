@@ -199,13 +199,13 @@ http 'http://api.fossa.io/api/licenses/53a0ff8844c1715555000131' 'Authorization:
 }
 ```
 
-Retrieve a License by ID.
+Retrieve a `License` by ID.
 
 ### HTTP Request
 
 `GET https://api.fossa.io/api/license/:licenseId`
 
-### Path Parameters
+### Path parameters
 
 | Parameter    | Type     | Required? | Description                        |
 | ------------ | -------- | --------- | ---------------------------------- |

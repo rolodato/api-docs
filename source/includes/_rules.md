@@ -130,7 +130,7 @@ http 'http://api.fossa.io/api/rules/157406' 'Authorization: token 123456789'
 }
 ```
 
-Retrieve a Rule by ID.
+Retrieve a `Rule` by ID.
 
 ### HTTP Request
 
@@ -173,7 +173,7 @@ http --form PUT 'http://api.fossa.io/api/rules/157406' action=APPROVE 'Authoriza
 }
 ```
 
-Updates Rules.
+Updates `Rule`s.
 
 ### HTTP Request
 
@@ -203,7 +203,7 @@ http DELETE 'http://api.fossa.io/api/rules/157406' 'Authorization: token 1234567
 {}
 ```
 
-Delete a Rule by ID.
+Delete a `Rule` by ID.
 
 ### HTTP Request
 
