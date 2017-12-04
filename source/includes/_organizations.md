@@ -130,7 +130,7 @@ one organization at a time.
 ## Retrieve Organization
 
 ```bash
-http 'http://api.fossa.io/api/organization/90' 'Authorization: token 123456789'
+http 'http://api.fossa.io/api/organizations/90' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -145,9 +145,9 @@ Retrieve an Organization by ID.
 
 ### HTTP Request
 
-`GET https://api.fossa.io/api/organization/:organizationId`
+`GET https://api.fossa.io/api/organizations/:organizationId`
 
-### Path Parameters
+### Path parameters
 
 | Parameter         | Type     | Required? | Description                             |
 | ----------------- | -------- | --------- | --------------------------------------- |

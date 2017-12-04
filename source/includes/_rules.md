@@ -32,6 +32,47 @@ different components.
 
 ## Create Rule
 
+```bash
+http --form POST 'http://api.fossa.io/api/rules' action=FLAG target=license policyId=252 targetId=532b52275d0187c662000038 'Authorization: token 123456789'
+```
+
+> Returns data in the shape of:
+
+```js
+// The newly created Rule.
+{
+  "id": 157406,
+  "action": "FLAG",
+  "target": "license",
+  "targetId": "532b52275d0187c662000038",
+  "policyId": 252,
+  "notes": "",
+  "updatedAt": "2017-12-04T09: 22: 27.660Z",
+  "createdAt": "2017-12-04T09: 22: 27.660Z",
+  "linkingCondition": null,
+  "nameCondition": null,
+  "depthCondition": null,
+  "license": {
+    "id": "532b52275d0187c662000038",
+    "title": "Aladdin Free Public License",
+    "shorthand": "aladdin"
+  },
+  "project": null
+}
+```
+
+Creates new Rules.
+
+### HTTP Request
+
+`POST http://api.fossa.io/api/rules`
+
+### Query parameters
+
+| Parameter  | Type         | Required? | Description                                                                        |
+| ---------- | ------------ | --------- | ---------------------------------------------------------------------------------- |
+| `${field}` | `keyof Rule` | N         | Sets the field's value. If not specified, fields will default to their zero value. |
+
 ## List Rules
 
 ```bash
@@ -77,6 +118,99 @@ operators.
 
 ## Retrieve Rule
 
+```bash
+http 'http://api.fossa.io/api/rules/157406' 'Authorization: token 123456789'
+```
+
+> Returns data in the shape of:
+
+```js
+{
+  /* Rule */
+}
+```
+
+Retrieve a Rule by ID.
+
+### HTTP Request
+
+`GET https://api.fossa.io/api/rules/:ruleId`
+
+### Path parameters
+
+| Parameter | Type     | Required? | Description                     |
+| --------- | -------- | --------- | ------------------------------- |
+| `:ruleId` | `number` | Y         | The ID of the rule to retrieve. |
+
 ## Update Rule
 
+```bash
+http --form PUT 'http://api.fossa.io/api/rules/157406' action=APPROVE 'Authorization: token 123456789'
+```
+
+> Returns data in the shape of:
+
+```js
+// The updated Rule.
+{
+  "id": 157406,
+  "action": "APPROVE",
+  "target": "license",
+  "targetId": "532b52275d0187c662000038",
+  "policyId": 252,
+  "notes": "",
+  "updatedAt": "2017-12-04T09: 22: 27.660Z",
+  "createdAt": "2017-12-04T09: 22: 27.660Z",
+  "linkingCondition": null,
+  "nameCondition": null,
+  "depthCondition": null,
+  "license": {
+    "id": "532b52275d0187c662000038",
+    "title": "Aladdin Free Public License",
+    "shorthand": "aladdin"
+  },
+  "project": null
+}
+```
+
+Updates Rules.
+
+### HTTP Request
+
+`PUT http://api.fossa.io/api/rules/:ruleId`
+
+### Path parameters
+
+| Parameter | Type     | Required? | Description                   |
+| --------- | -------- | --------- | ----------------------------- |
+| `:ruleId` | `number` | Y         | The ID of the rule to update. |
+
+### Query parameters
+
+| Parameter  | Type         | Required? | Description                                                             |
+| ---------- | ------------ | --------- | ----------------------------------------------------------------------- |
+| `${field}` | `keyof Rule` | N         | Sets the field's value. If not specified, fields will remain unchanged. |
+
 ## Delete Rule
+
+```bash
+http DELETE 'http://api.fossa.io/api/rules/157406' 'Authorization: token 123456789'
+```
+
+> Returns data in the shape of:
+
+```js
+{}
+```
+
+Delete a Rule by ID.
+
+### HTTP Request
+
+`DELETE https://api.fossa.io/api/rules/:ruleId`
+
+### Path parameters
+
+| Parameter | Type     | Required? | Description                   |
+| --------- | -------- | --------- | ----------------------------- |
+| `:ruleId` | `number` | Y         | The ID of the rule to delete. |
