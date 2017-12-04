@@ -31,6 +31,6 @@ on-premises installation for `api.fossa.io`.
 
 Code examples use `http` from [HTTPie](https://httpie.org/).
 
-<aside class="warning">
-The FOSSA API is currently in alpha. Some endpoints may cause poor performance and system instability if called with malformed parameters. As a best practice, you should always paginate responses to avoid potentially poor performance.
+<aside class="notice">
+The FOSSA API is currently in beta. Some endpoints may cause poor performance and system instability if called with malformed parameters. As a best practice, you should always paginate responses to avoid potentially poor performance.
 </aside>
