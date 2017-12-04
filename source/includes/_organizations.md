@@ -124,8 +124,8 @@
 }
 ```
 
-Teams of `User`s are grouped together in an `Organization`. A `User` can only belong to
-one organization at a time.
+Teams of `User`s are grouped together in an `Organization`. A `User` can only
+belong to one organization at a time.
 
 ## Retrieve Organization
 
@@ -151,7 +151,7 @@ Retrieve an Organization by ID.
 
 | Parameter         | Type     | Required? | Description                             |
 | ----------------- | -------- | --------- | --------------------------------------- |
-| `:organizationId` | `string` | Y         | The ID of the organization to retrieve. |
+| `:organizationId` | `number` | Y         | The ID of the organization to retrieve. |
 
 <aside class="notice">
 You can retrieve the ID of your organization by examining your <code>User</code> model. See <a href="#list-users">List Users</a> for more details.
@@ -159,14 +159,335 @@ You can retrieve the ID of your organization by examining your <code>User</code>
 
 ## Invite User
 
+```bash
+http --form POST 'http://api.fossa.io/api/organizations/90/invite' emails[]=email1@example.com emails[]=email2@example.com 'Authorization: token 123456789'
+```
+
+> Returns data in the shape of:
+
+```json
+null
+```
+
+Invite users to an organization by email.
+
+### HTTP Request
+
+`POST https://api.fossa.io/api/organizations/:organizationId/invite`
+
+### Path parameters
+
+| Parameter         | Type     | Required? | Description                                    |
+| ----------------- | -------- | --------- | ---------------------------------------------- |
+| `:organizationId` | `number` | Y         | The ID of the organization to invite users to. |
+
+### Query parameters
+
+| Parameter | Type       | Required? | Description           |
+| --------- | ---------- | --------- | --------------------- |
+| `emails`  | `string[]` | Y         | The emails to invite. |
+
 ## List Invoices
 
-## Get Organization Report
+```bash
+http 'http://api.fossa.io/api/organization/invoices' 'Authorization: token 123456789'
+```
 
-## Scan Projects
+> Returns data in the shape of:
 
-## Send Badge PRs to Projects
+```js
+[
+  {
+    /* Stripe invoices */
+  }
+];
+```
+
+Lists your `Organization`'s invoices.
+
+<aside class="notice">
+If your organization uses a custom billing scheme, or you're using an on-premises installation, this API may return <code>"Billing is disabled for this account"</code> to you. This is a known limitation, and we're working on resolving it.
+</aside>
+
+### HTTP Request
+
+`GET https://api.fossa.io/api/organization/invoices`
 
 ## List Issues
 
+```bash
+http 'http://api.fossa.io/api/organization/issues' 'Authorization: token 123456789'
+```
+
+> Returns data in the shape of:
+
+```js
+[
+  {
+    id: 126203,
+    type: "unlicensed_dependency",
+    revisionId: "mvn+org.apache.lucene:lucene-core$4.6.1",
+    projectId: null,
+    organizationId: 90,
+    ruleId: null,
+    licenseId: null,
+    resolved: false,
+    resolvedAt: null,
+    issue_tracker_id: null,
+    issue_tracker_type: "jira",
+    notes: null,
+    createdAt: "2017-11-06T22:34:46.619Z",
+    updatedAt: "2017-11-06T22:34:46.619Z",
+    parents: [
+      {
+        title: "SEND-Connector",
+        description: "",
+        locator: "git+github.com/draysontechnologies/SEND-Connector",
+        url: "https://github.com/draysontechnologies/SEND-Connector",
+        public: true,
+        IssueProject: { resolved: false }
+      }
+    ],
+    resolutions: [],
+    revision: {
+      loc: {
+        fetcher: "mvn",
+        package: "org.apache.lucene:lucene-core",
+        revision: "4.6.1"
+      },
+      licenses: [],
+      projectId: "mvn+org.apache.lucene:lucene-core",
+      locator: "mvn+org.apache.lucene:lucene-core$4.6.1",
+      resolved: true,
+      url: null,
+      project: {
+        title: "Lucene Core",
+        description: "Apache Lucene Java Core",
+        locator: "mvn+org.apache.lucene:lucene-core",
+        url: null,
+        public: true
+      }
+    },
+    revisions: [
+      {
+        loc: {
+          fetcher: "git",
+          package: "github.com/draysontechnologies/SEND-Connector",
+          revision: "dea30d693358704dd411ee40260fc58f2f441eee"
+        },
+        licenses: [],
+        locator:
+          "git+github.com/draysontechnologies/SEND-Connector$dea30d693358704dd411ee40260fc58f2f441eee",
+        url: null,
+        resolved: true,
+        projectId: "git+github.com/draysontechnologies/SEND-Connector",
+        unsupported: false,
+        source_type: "JavaArtifact",
+        error: null,
+        parent_locator:
+          "git+github.com/draysontechnologies/SEND-Connector$6ef23eb4aade9dfcc7b818a956e1bf5cb286a4ae",
+        attribution_file: null,
+        transitive_excludes: [],
+        author: "GitHub <noreply@github.com>",
+        message:
+          "Merge pull request #2 from draysontechnologies/SEND-3\n\nSEND-3 - Corrected tests to allow build",
+        revision_timestamp: "2017-10-20 11:47:59.000 +00:00",
+        all_origin_paths: ["pom.xml"],
+        license_count: 17,
+        dependency_count: 142,
+        todo_count: 9,
+        unresolved_issue_count: 0,
+        dependency_cache_valid: "2017-11-06T21:46:50.301Z",
+        dependency_cache_updated: "2017-11-06T21:46:50.301Z",
+        package_cache_error: null,
+        createdAt: "2017-10-20T11:48:26.125Z",
+        updatedAt: "2017-11-06T22:34:47.196Z",
+        IssueRevision: {
+          issueId: 126203,
+          revisionId:
+            "git+github.com/draysontechnologies/SEND-Connector$dea30d693358704dd411ee40260fc58f2f441eee",
+          createdAt: "2017-11-06T22:34:46.695Z",
+          updatedAt: "2017-11-06T22:34:46.695Z"
+        },
+        references: [
+          {
+            id: 466157,
+            type: "branch",
+            name: "develop",
+            revision_id:
+              "git+github.com/draysontechnologies/SEND-Connector$dea30d693358704dd411ee40260fc58f2f441eee",
+            project_id: "git+github.com/draysontechnologies/SEND-Connector"
+          },
+          {
+            id: 530323,
+            type: "branch",
+            name: "release/v1.3.1",
+            revision_id:
+              "git+github.com/draysontechnologies/SEND-Connector$dea30d693358704dd411ee40260fc58f2f441eee",
+            project_id: "git+github.com/draysontechnologies/SEND-Connector"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    /* More issues */
+  }
+];
+```
+
+Returns a list of all issues for all projects in the organization.
+
+### HTTP Request
+
+`GET https://api.fossa.io/api/organization/issues`
+
+## Get Summary
+
+```bash
+http 'http://api.fossa.io/api/organization/summary' 'Authorization: token 123456789'
+```
+
+> This endpoint returns an HTML report.
+
+Retrieves your `Organization`'s summary report. This report is an HTML page
+which can be loaded in an `<iframe>` for display.
+
+### HTTP Request
+
+`GET https://api.fossa.io/api/organization/summary`
+
+## Get Statistics
+
+```bash
+http 'http://api.fossa.io/api/organization/stats' 'Authorization: token 123456789'
+```
+
+> Returns data in the shape of:
+
+```json
+{
+  "projects": 3,
+  "unsetup_projects": 0,
+  "contributors": 0,
+  "total_components": 198,
+  "flagged_components": null,
+  "revision_cache_count": 3
+}
+```
+
+Returns interesting summary statistics for the organization.
+
+### HTTP Request
+
+`GET https://api.fossa.io/api/organization/stats`
+
 ## Search Components
+
+```bash
+http 'http://api.fossa.io/api/organization/search' 'Authorization: token 123456789'
+```
+
+> Returns data in shape of:
+
+```json
+[
+  {
+    "loc": { "fetcher": "pip", "package": "Pillow", "revision": "1.7.8" },
+    "licenses": [],
+    "locator": "pip+Pillow$1.7.8",
+    "dependencyRoots": [
+      {
+        "loc": {
+          "fetcher": "git",
+          "package": "github.com/dropbox/hackpad",
+          "revision": "da0b3dbc3525cd3094c52975d11817ab30087ac9"
+        },
+        "licenses": [],
+        "locator":
+          "git+github.com/dropbox/hackpad$da0b3dbc3525cd3094c52975d11817ab30087ac9",
+        "project": {
+          "locator": "git+github.com/dropbox/hackpad",
+          "organizationId": 25,
+          "default_branch": "master",
+          "title": "hackpad"
+        },
+        "DependencyLock": {
+          "organizationId": 25,
+          "type": "DETERMINED",
+          "root":
+            "git+github.com/dropbox/hackpad$da0b3dbc3525cd3094c52975d11817ab30087ac9",
+          "locator": "pip+Pillow$1.7.8",
+          "unresolved_locators": ["pip+pillow$==1.7.8"],
+          "origin_paths": ["contrib/glue/setup.py"],
+          "depth": 1,
+          "manual": false,
+          "optional": false,
+          "tags": [null],
+          "is_submodule": false,
+          "createdAt": "2017-09-07T22:12:00.704Z",
+          "updatedAt": "2017-09-07T22:12:00.704Z"
+        }
+      }
+    ],
+    "project": {
+      "title": "Pillow",
+      "description":
+        "Pillow\n======\n\nPython Imaging Library (Fork)\n-----------------------------\n\nPillow is the friendly PIL fork by `Alex Clark and Contributors <https://github.com/python-pillow/Pillow/graphs/contributors>`_. PIL is the Python Imaging Library by Fredrik Lundh and Contributors.\n\n.. start-badges\n\n.. list-table::\n    :stub-columns: 1\n\n    * - docs\n      - |docs|\n    * - tests\n      - | |linux| |macos| |windows| |coverage| |health|\n    * - package\n      - |zenodo| |version| |downloads|\n\n.. |docs| image:: https://readthedocs.org/projects/pillow/badge/?version=latest\n   :target: https://pillow.readthedocs.io/?badge=latest\n   :alt: Documentation Status\n\n.. |linux| image:: https://img.shields.io/travis/python-pillow/Pillow/master.svg?label=Linux%20build\n   :target: https://travis-ci.org/python-pillow/Pillow\n   :alt: Travis CI build status (Linux)\n\n.. |macos| image:: https://img.shields.io/travis/python-pillow/pillow-wheels/latest.svg?label=macOS%20build\n   :target: https://travis-ci.org/python-pillow/pillow-wheels\n   :alt: Travis CI build status (macOS)\n\n.. |windows| image:: https://img.shields.io/appveyor/ci/python-pillow/Pillow/master.svg?label=Windows%20build\n   :target: https://ci.appveyor.com/project/python-pillow/Pillow\n   :alt: AppVeyor CI build status (Windows)\n\n.. |coverage| image:: https://coveralls.io/repos/python-pillow/Pillow/badge.svg?branch=master&service=github\n   :target: https://coveralls.io/github/python-pillow/Pillow?branch=master\n   :alt: Code coverage\n\n.. |health| image:: https://landscape.io/github/python-pillow/Pillow/master/landscape.svg\n   :target: https://landscape.io/github/python-pillow/Pillow/master\n   :alt: Code health\n\n.. |zenodo| image:: https://zenodo.org/badge/17549/python-pillow/Pillow.svg\n   :target: https://zenodo.org/badge/latestdoi/17549/python-pillow/Pillow\n\n.. |version| image:: https://img.shields.io/pypi/v/pillow.svg\n   :target: https://pypi.python.org/pypi/Pillow/\n   :alt: Latest PyPI version\n\n.. |downloads| image:: https://img.shields.io/pypi/dm/pillow.svg\n   :target: https://pypi.python.org/pypi/Pillow/\n   :alt: Number of PyPI downloads\n\n.. end-badges\n\n\n\nMore Information\n----------------\n\n- `Documentation <https://pillow.readthedocs.io/>`_\n\n  - `Installation <https://pillow.readthedocs.io/en/latest/installation.html>`_\n  - `Handbook <https://pillow.readthedocs.io/en/latest/handbook/index.html>`_\n\n- `Contribute <https://github.com/python-pillow/Pillow/blob/master/.github/CONTRIBUTING.md>`_\n\n  - `Issues <https://github.com/python-pillow/Pillow/issues>`_\n  - `Pull requests <https://github.com/python-pillow/Pillow/pulls>`_\n\n- `Changelog <https://github.com/python-pillow/Pillow/blob/master/CHANGES.rst>`_\n\n  - `Pre-fork <https://github.com/python-pillow/Pillow/blob/master/CHANGES.rst#pre-fork>`_",
+      "url": "http://python-pillow.org",
+      "locator": "pip+Pillow"
+    },
+    "issueTargets": [
+      {
+        "id": 96004,
+        "type": "unlicensed_dependency",
+        "ruleId": null,
+        "licenseId": null,
+        "IssueRevisions": [
+          {
+            "issueId": 96004,
+            "revisionId":
+              "git+github.com/dropbox/hackpad$da0b3dbc3525cd3094c52975d11817ab30087ac9",
+            "createdAt": "2017-07-21T08:16:28.938Z",
+            "updatedAt": "2017-07-21T08:16:28.938Z"
+          }
+        ]
+      }
+    ]
+  }
+]
+```
+
+Searches through all issues in an organization. This endpoint can filter by the
+whether an issue has been resolved.
+
+### HTTP Request
+
+`GET https://api.fossa.io/api/organization/search`
+
+### Query parameters
+
+| Parameter | Type     | Required? | Description                                                                         |
+| --------- | -------- | --------- | ----------------------------------------------------------------------------------- |
+| `q`       | `string` | N         | If set, searches only for issues on components whose names contain the query.       |
+| `filter`  | `string` | N         | If set, filters the returned issues. Can be `resolvedIssues` or `unresolvedIssues`. |
+
+## Scan Components
+
+```bash
+http 'http://api.fossa.io/api/organization/scan' 'Authorization: token 123456789'
+```
+
+> Returns the number of scanned projects.
+
+```json
+20
+```
+
+Queues all organization projects to be scanned for issues. This is useful if a
+large number of projects have been updated recently, or if your organization has
+adopted a new policy.
+
+### HTTP Request
+
+`GET https://api.fossa.io/api/organization/scan`

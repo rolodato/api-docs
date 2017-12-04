@@ -199,7 +199,7 @@ http DELETE 'http://api.fossa.io/api/rules/157406' 'Authorization: token 1234567
 
 > Returns data in the shape of:
 
-```js
+```json
 {}
 ```
 

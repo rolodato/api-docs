@@ -80,8 +80,8 @@
 }
 ```
 
-`Organization`s contain many `User`s. Each `User` corresponds to an account signed up
-with the current FOSSA instance.
+`Organization`s contain many `User`s. Each `User` corresponds to an account
+signed up with the current FOSSA instance.
 
 ## List Users
 
@@ -117,14 +117,14 @@ operators.
 
 ### Query parameters
 
-| Parameter  | Type         | Required? | Description                                                                                                                                                                                  |
-| ---------- | ------------ | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Parameter  | Type         | Required? | Description                                                                                                                                                                                    |
+| ---------- | ------------ | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `${field}` | `keyof User` | N         | Filter results to only include rows where `${field}` is set to the value passed as `${field}`. For example, to only include rows where `email_verified` is `true`, pass `email_verified=true`. |
-| `q`        | `any`        | N         | Perform a substring search for the value across all fields.                                                                                                                                  |
-| `sort`     | `keyof User` | N         | Sort by the specified field name. Prefix with `-` to sort by descending order. For example, to sort in descending by `username`, pass `sort=-username`.                                                    |
-| `count`    | `int`        | N         | Paginate response to include only `count` rows per response.                                                                                                                                 |
-| `page`     | `int`        | N         | Set the pagination page index.                                                                                                                                                               |
-| `offset`   | `int`        | N         | Begin pagination at the specified row offset.                                                                                                                                                |
+| `q`        | `any`        | N         | Perform a substring search for the value across all fields.                                                                                                                                    |
+| `sort`     | `keyof User` | N         | Sort by the specified field name. Prefix with `-` to sort by descending order. For example, to sort in descending by `username`, pass `sort=-username`.                                        |
+| `count`    | `int`        | N         | Paginate response to include only `count` rows per response.                                                                                                                                   |
+| `page`     | `int`        | N         | Set the pagination page index.                                                                                                                                                                 |
+| `offset`   | `int`        | N         | Begin pagination at the specified row offset.                                                                                                                                                  |
 
 ## Retrieve User
 
