@@ -240,10 +240,10 @@ http 'http://api.fossa.io/api/organization/issues' 'Authorization: token 1234567
     updatedAt: "2017-11-06T22:34:46.619Z",
     parents: [
       {
-        title: "SEND-Connector",
+        title: "Demo-Project",
         description: "",
-        locator: "git+github.com/draysontechnologies/SEND-Connector",
-        url: "https://github.com/draysontechnologies/SEND-Connector",
+        locator: "git+github.com/fossas/Demo-Project",
+        url: "https://github.com/fossas/Demo-Project",
         public: true,
         IssueProject: { resolved: false }
       }
@@ -268,67 +268,7 @@ http 'http://api.fossa.io/api/organization/issues' 'Authorization: token 1234567
         public: true
       }
     },
-    revisions: [
-      {
-        loc: {
-          fetcher: "git",
-          package: "github.com/draysontechnologies/SEND-Connector",
-          revision: "dea30d693358704dd411ee40260fc58f2f441eee"
-        },
-        licenses: [],
-        locator:
-          "git+github.com/draysontechnologies/SEND-Connector$dea30d693358704dd411ee40260fc58f2f441eee",
-        url: null,
-        resolved: true,
-        projectId: "git+github.com/draysontechnologies/SEND-Connector",
-        unsupported: false,
-        source_type: "JavaArtifact",
-        error: null,
-        parent_locator:
-          "git+github.com/draysontechnologies/SEND-Connector$6ef23eb4aade9dfcc7b818a956e1bf5cb286a4ae",
-        attribution_file: null,
-        transitive_excludes: [],
-        author: "GitHub <noreply@github.com>",
-        message:
-          "Merge pull request #2 from draysontechnologies/SEND-3\n\nSEND-3 - Corrected tests to allow build",
-        revision_timestamp: "2017-10-20 11:47:59.000 +00:00",
-        all_origin_paths: ["pom.xml"],
-        license_count: 17,
-        dependency_count: 142,
-        todo_count: 9,
-        unresolved_issue_count: 0,
-        dependency_cache_valid: "2017-11-06T21:46:50.301Z",
-        dependency_cache_updated: "2017-11-06T21:46:50.301Z",
-        package_cache_error: null,
-        createdAt: "2017-10-20T11:48:26.125Z",
-        updatedAt: "2017-11-06T22:34:47.196Z",
-        IssueRevision: {
-          issueId: 126203,
-          revisionId:
-            "git+github.com/draysontechnologies/SEND-Connector$dea30d693358704dd411ee40260fc58f2f441eee",
-          createdAt: "2017-11-06T22:34:46.695Z",
-          updatedAt: "2017-11-06T22:34:46.695Z"
-        },
-        references: [
-          {
-            id: 466157,
-            type: "branch",
-            name: "develop",
-            revision_id:
-              "git+github.com/draysontechnologies/SEND-Connector$dea30d693358704dd411ee40260fc58f2f441eee",
-            project_id: "git+github.com/draysontechnologies/SEND-Connector"
-          },
-          {
-            id: 530323,
-            type: "branch",
-            name: "release/v1.3.1",
-            revision_id:
-              "git+github.com/draysontechnologies/SEND-Connector$dea30d693358704dd411ee40260fc58f2f441eee",
-            project_id: "git+github.com/draysontechnologies/SEND-Connector"
-          }
-        ]
-      }
-    ]
+    revisions: [ ... ] /* Revision objects of where issues were found */
   },
   {
     /* More issues */
@@ -337,6 +277,27 @@ http 'http://api.fossa.io/api/organization/issues' 'Authorization: token 1234567
 ```
 
 Returns a list of all issues for all projects in the organization.
+
+### Response Parameters
+
+| Parameter  | Type            | Description                                                                                                                                                                      |
+| ---------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id` | `int` | Issue ID                                                                                                                      |
+| `type` | `string` | Issue type, can be one of `unlicensed_dependency`, `policy_confict`, `policy_flag`, `missing_attribution` or `vulnerability` |
+| `organizationId` | `int` | Organization this issue belongs to |
+| `ruleId` | `int` | Target Policy rule this issue references, defined only if issue is of type `policy_conflict` or `policy_flag`  |
+| `projectId` | `string` | Target Project this issue references, defined only if issue is of type `missing_attribution`  |
+| `revision` | `Revision` | Target Revision this issue references |
+| `licenseId` | `string` | License this issue references, defined only if issue is of type `policy_conflict` or `policy_flag`  |
+| `resolved` | `boolean` | `true` if this issue has been previously resolved in the FOSSA UI or an issue tracker |
+| `resolvedAt` | `Date` | Timestamp of when the issue was resolved |
+| `issue_tracker_id` | `string` | External ID in an issue tracker of where this issue was exported to |
+| `issue_tracker_type` | `string` | Can be one of `jira` or `github` |
+| `notes` | `string` | Any notes attached to issue during resolution in UI or issue tracker |
+| `createdAt` | `Date` | Timestamp of when issue was created |
+| `updatedAt` | `Date` | Timestamp of when issue was last updated |
+| `parents` | `Project[]` | A list of projects this issue was found in |
+| `revisions` | `Revision[]` | A list of revisions this issue was found in |
 
 ### HTTP Request
 

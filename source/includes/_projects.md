@@ -11,26 +11,7 @@
   "public": true,
   "setup": true,
   "authors": [
-    "tom@macwright.org",
-    "tmcw@users.noreply.github.com",
-    "will@mapbox.com",
-    "dane@mapbox.com",
-    "flippmoke@gmail.com",
-    "blake@mapbox.com",
-    "young@mapbox.com",
-    "mcwhittemore@gmail.com",
-    "karenzshea@gmail.com",
-    "karen@mapbox.com",
-    "wb@bergwerk-gis.at",
-    "emily@mapbox.com",
-    "john.firebaugh@gmail.com",
-    "ryan.clark.j@gmail.com",
-    "clark@mapbox.com",
-    "dthompson@gmail.com",
-    "young@developmentseed.org",
-    "jeff@miccolis.net",
-    "bobby@mapbox.com",
-    "admin+snyk-bot@snyk.io"
+    "tom@example.org"
   ],
   "scm_url": null,
   "manual_scm_url": false,
@@ -69,8 +50,7 @@
       "id": 569364,
       "type": "branch",
       "name": "master",
-      "revision_id":
-        "git+github.com/ilikebits/assert-http$4080d6d4749e7eba3a56e3eb35e0cea5d2c25d86",
+      "revision_id": "git+github.com/ilikebits/assert-http$4080d6d4749e7eba3a56e3eb35e0cea5d2c25d86",
       "project_id": "git+github.com/ilikebits/assert-http",
       "revision": {
         "loc": {
@@ -87,11 +67,10 @@
         "unsupported": false,
         "source_type": "CommonJSPackage",
         "error": null,
-        "parent_locator":
-          "git+github.com/ilikebits/assert-http$f23ba7e3380a2aa5c395e2759dbe70cb5ea5102d",
+        "parent_locator": "git+github.com/ilikebits/assert-http$f23ba7e3380a2aa5c395e2759dbe70cb5ea5102d",
         "attribution_file": null,
         "transitive_excludes": [],
-        "author": "emilymcafee <emily@mapbox.com>",
+        "author": "ilikebits <leo@fossa.io>",
         "message": "1.1.5\n",
         "revision_timestamp": "2017-07-11 22:09:56.000 +00:00",
         "all_origin_paths": ["package.json"],
@@ -107,8 +86,7 @@
         "meta": [
           {
             "organizationId": 90,
-            "revisionId":
-              "git+github.com/ilikebits/assert-http$4080d6d4749e7eba3a56e3eb35e0cea5d2c25d86",
+            "revisionId": "git+github.com/ilikebits/assert-http$4080d6d4749e7eba3a56e3eb35e0cea5d2c25d86",
             "last_scan": "2017-11-29T04:40:52.076Z",
             "to_scan": null,
             "createdAt": "2017-11-29T04:39:24.032Z",
