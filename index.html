@@ -379,6 +379,29 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#teams" class="toc-h1 toc-link" data-title="Teams">Teams</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-team" class="toc-h2 toc-link" data-title="Create Team">Create Team</a>
+                  </li>
+                  <li>
+                    <a href="#list-teams" class="toc-h2 toc-link" data-title="List Teams">List Teams</a>
+                  </li>
+                  <li>
+                    <a href="#update-team" class="toc-h2 toc-link" data-title="Update Team">Update Team</a>
+                  </li>
+                  <li>
+                    <a href="#delete-team" class="toc-h2 toc-link" data-title="Delete Team">Delete Team</a>
+                  </li>
+                  <li>
+                    <a href="#manage-users" class="toc-h2 toc-link" data-title="Manage Users">Manage Users</a>
+                  </li>
+                  <li>
+                    <a href="#manage-projects" class="toc-h2 toc-link" data-title="Manage Projects">Manage Projects</a>
+                  </li>
+              </ul>
+          </li>
       </div>
         <ul class="toc-footer">
             <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
@@ -3400,6 +3423,282 @@ operators.</p>
 <td><code>string</code></td>
 <td>Y</td>
 <td>The ID of the license to retrieve.</td>
+</tr>
+</tbody></table>
+<h1 id='teams'>Teams</h1>
+<blockquote>
+<p>An example Team:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"organizationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awesome Team That's Really Long"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"autoAddUsers"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"autoAddProjects"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-25T18:04:15.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-09T19:18:44.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"teamUsers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"teamProjects"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"projectId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"git+github.com/lackstein/cryptopals"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Teams are a way of organizing projects and giving users access to a group of projects.</p>
+<h2 id='create-team'>Create Team</h2><pre class="highlight shell"><code>http --form POST <span class="s1">'http://api.fossa.io/api/teams'</span> <span class="nv">name</span><span class="o">=</span><span class="s1">'new team'</span> <span class="nv">autoAddUsers</span><span class="o">=</span><span class="s1">'true'</span> <span class="nv">autoAddProjects</span><span class="o">=</span><span class="s1">'false'</span> <span class="s1">'Authorization: token 123456789'</span>
+</code></pre>
+<blockquote>
+<p>Returns data in the shape of:</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="c1">// The newly created Team.</span>
+<span class="p">{</span>
+    <span class="s2">"createdAt"</span><span class="p">:</span> <span class="s2">"2018-10-11T20:52:12.000Z"</span><span class="p">,</span>
+    <span class="s2">"updatedAt"</span><span class="p">:</span> <span class="s2">"2018-10-11T20:52:12.000Z"</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"new team"</span><span class="p">,</span>
+    <span class="s2">"autoAddUsers"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"autoAddProjects"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"organizationId"</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre>
+<p>Creates a new team.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST http://api.fossa.io/api/teams</code></p>
+<h3 id='body-parameters'>Body parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Y</td>
+<td>The name of the team</td>
+</tr>
+<tr>
+<td><code>autoAddUsers</code></td>
+<td><code>boolean</code></td>
+<td>N</td>
+<td>Whether new users added to your FOSSA organization should automatically be added to this team (default false)</td>
+</tr>
+<tr>
+<td><code>autoAddProjects</code></td>
+<td><code>boolean</code></td>
+<td>N</td>
+<td>Whether newly imported projects should be automatically added to this team (default false)</td>
+</tr>
+</tbody></table>
+<h2 id='list-teams'>List Teams</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/teams'</span> <span class="s1">'Authorization: token 123456789'</span>
+</code></pre>
+<blockquote>
+<p>Returns data in the shape of:</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="cm">/* Team 1 elided */</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="cm">/* Team 2 elided */</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="cm">/* Team 3 elided */</span>
+  <span class="p">}</span>
+  <span class="c1">// ...</span>
+<span class="p">];</span>
+</code></pre>
+<p>Lists all teams, the IDs of the users that have access to each team, and the locators of the projects in each team.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET http://api.fossa.io/api/teams</code></p>
+<h2 id='update-team'>Update Team</h2><pre class="highlight shell"><code>http --form PUT <span class="s1">'http://api.fossa.io/api/teams/1'</span> <span class="nv">name</span><span class="o">=</span><span class="s1">'changed team'</span> <span class="s1">'Authorization: token 123456789'</span>
+</code></pre>
+<blockquote>
+<p>Returns data in the shape of:</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="c1">// The updated Team.</span>
+<span class="p">{</span>
+    <span class="s2">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"organizationId"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"changed team"</span><span class="p">,</span>
+    <span class="s2">"autoAddUsers"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"autoAddProjects"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"createdAt"</span><span class="p">:</span> <span class="s2">"2018-09-25T18:04:15.000Z"</span><span class="p">,</span>
+    <span class="s2">"updatedAt"</span><span class="p">:</span> <span class="s2">"2018-10-11T21:02:19.000Z"</span><span class="p">,</span>
+    <span class="s2">"teamUsers"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"userId"</span><span class="p">:</span> <span class="mi">2</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">"teamProjects"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"projectId"</span><span class="p">:</span> <span class="s2">"git+github.com/lackstein/cryptopals"</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+<p>Updates Teams.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>PUT http://api.fossa.io/api/teams/:teamId</code></p>
+<h3 id='path-parameters'>Path parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>:teamId</code></td>
+<td><code>number</code></td>
+<td>Y</td>
+<td>The ID of the team to update.</td>
+</tr>
+</tbody></table>
+<h3 id='body-parameters-2'>Body parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>${field}</code></td>
+<td><code>keyof Team</code></td>
+<td>N</td>
+<td>Sets the field&#39;s value. If not specified, fields will remain unchanged.</td>
+</tr>
+</tbody></table>
+<h2 id='delete-team'>Delete Team</h2><pre class="highlight shell"><code>http DELETE <span class="s1">'http://api.fossa.io/api/teams/5'</span> <span class="s1">'Authorization: token 123456789'</span>
+</code></pre>
+<blockquote>
+<p>Returns an HTTP status of 200</p>
+</blockquote>
+
+<p>Delete a Team by ID.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>DELETE https://api.fossa.io/api/teams/:teamId</code></p>
+<h3 id='path-parameters-2'>Path parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>:teamId</code></td>
+<td><code>number</code></td>
+<td>Y</td>
+<td>The ID of the team to delete.</td>
+</tr>
+</tbody></table>
+<h2 id='manage-users'>Manage Users</h2><pre class="highlight shell"><code>http --form PUT <span class="s1">'http://api.fossa.io/api/teams/1/users'</span> <span class="nv">action</span><span class="o">=</span><span class="s1">'replace'</span> <span class="nv">users</span><span class="o">=</span>1 <span class="nv">users</span><span class="o">=</span>2 <span class="s1">'Authorization: token 123456789'</span>
+</code></pre>
+<blockquote>
+<p>Returns data in the shape of:</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="c1">// All users that belong to the team.</span>
+<span class="p">{</span>
+    <span class="s2">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"users"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="mi">1</span><span class="p">,</span>
+        <span class="mi">2</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+<p>Add or remove users from a team.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>PUT http://api.fossa.io/api/teams/:teamId/users</code></p>
+<h3 id='path-parameters-3'>Path parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>:teamId</code></td>
+<td><code>number</code></td>
+<td>Y</td>
+<td>The ID of the team to delete.</td>
+</tr>
+</tbody></table>
+<h3 id='body-parameters-3'>Body parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>action</code></td>
+<td><code>add</code>, <code>remove</code>, or <code>replace</code></td>
+<td>N</td>
+<td>Whether to add or remove the specified user ids from the team. <code>replace</code> will replace the current list of team users with the provided user ids. (default replace)</td>
+</tr>
+</tbody></table>
+<h2 id='manage-projects'>Manage Projects</h2><pre class="highlight shell"><code>http --form PUT <span class="s1">'http://api.fossa.io/api/teams/1/projects'</span> <span class="nv">action</span><span class="o">=</span><span class="s1">'replace'</span> <span class="nv">projects</span><span class="o">=</span><span class="s1">'git+github.com/lackstein/cryptopals'</span> <span class="s1">'Authorization: token 123456789'</span>
+</code></pre>
+<blockquote>
+<p>Returns data in the shape of:</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="c1">// All users that belong to the team.</span>
+<span class="p">{</span>
+    <span class="s2">"id"</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"projects"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">"git+github.com/lackstein/cryptopals"</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre>
+<p>Add or remove projects from a Team.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>PUT http://api.fossa.io/api/teams/:teamId/projects</code></p>
+<h3 id='path-parameters-4'>Path parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>:teamId</code></td>
+<td><code>number</code></td>
+<td>Y</td>
+<td>The ID of the team to delete.</td>
+</tr>
+</tbody></table>
+<h3 id='body-parameters-4'>Body parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required?</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>action</code></td>
+<td><code>add</code>, <code>remove</code>, or <code>replace</code></td>
+<td>N</td>
+<td>Whether to add or remove the specified project locators from the team. <code>replace</code> will replace the current list of team projects with the provided project locators. (default replace)</td>
 </tr>
 </tbody></table>
 
