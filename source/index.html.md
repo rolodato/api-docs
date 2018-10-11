@@ -16,6 +16,7 @@ includes:
   - revisions
   - builds
   - licenses
+  - teams
 
 search: true
 ---
