@@ -414,9 +414,9 @@
 <p>Welcome to the FOSSA API! Each project analyzed by FOSSA exposes a REST API for
 custom integration with CI, scripts, and client applications.</p>
 
-<p>The public FOSSA API is available at <code>https://api.fossa.io/</code>. If you are
+<p>The public FOSSA API is available at <code>https://app.fossa.io/</code>. If you are
 integrating with an on-premises installation, substitute the hostname of your
-on-premises installation for <code>api.fossa.io</code>.</p>
+on-premises installation for <code>app.fossa.io</code>.</p>
 
 <p>Code examples use <code>http</code> from <a href="https://httpie.org/">HTTPie</a>.</p>
 
@@ -563,7 +563,7 @@ allow access to projects belonging to the user&#39;s organization.</p>
 </span></code></pre>
 <p>Teams of <code>User</code>s are grouped together in an <code>Organization</code>. A <code>User</code> can only
 belong to one organization at a time.</p>
-<h2 id='retrieve-organization'>Retrieve Organization</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/organizations/90'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='retrieve-organization'>Retrieve Organization</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/organizations/90'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -574,7 +574,7 @@ belong to one organization at a time.</p>
 </code></pre>
 <p>Retrieve an Organization by ID.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://api.fossa.io/api/organizations/:organizationId</code></p>
+<p><code>GET https://app.fossa.io/api/organizations/:organizationId</code></p>
 <h3 id='path-parameters'>Path parameters</h3>
 <table><thead>
 <tr>
@@ -595,7 +595,7 @@ belong to one organization at a time.</p>
 <aside class="notice">
 You can retrieve the ID of your organization by examining your <code>User</code> model. See <a href="#list-users">List Users</a> for more details.
 </aside>
-<h2 id='invite-user'>Invite User</h2><pre class="highlight shell"><code>http --form POST <span class="s1">'http://api.fossa.io/api/organizations/90/invite'</span> emails[]<span class="o">=</span>email1@example.com emails[]<span class="o">=</span>email2@example.com <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='invite-user'>Invite User</h2><pre class="highlight shell"><code>http --form POST <span class="s1">'https://app.fossa.io/api/organizations/90/invite'</span> emails[]<span class="o">=</span>email1@example.com emails[]<span class="o">=</span>email2@example.com <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -604,7 +604,7 @@ You can retrieve the ID of your organization by examining your <code>User</code>
 </span></code></pre>
 <p>Invite users to an organization by email.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST https://api.fossa.io/api/organizations/:organizationId/invite?emails[]=test@example.com</code></p>
+<p><code>POST https://app.fossa.io/api/organizations/:organizationId/invite?emails[]=test@example.com</code></p>
 <h3 id='path-parameters-2'>Path parameters</h3>
 <table><thead>
 <tr>
@@ -637,7 +637,7 @@ You can retrieve the ID of your organization by examining your <code>User</code>
 <td>The emails to invite.</td>
 </tr>
 </tbody></table>
-<h2 id='list-invoices'>List Invoices</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/organization/invoices'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='list-invoices'>List Invoices</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/organization/invoices'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -654,8 +654,8 @@ You can retrieve the ID of your organization by examining your <code>User</code>
 If your organization uses a custom billing scheme, or you're using an on-premises installation, this API may return <code>"Billing is disabled for this account"</code> to you. This is a known limitation, and we're working on resolving it.
 </aside>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://api.fossa.io/api/organization/invoices</code></p>
-<h2 id='list-issues'>List Issues</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/organization/issues'</span> <span class="s1">'Authorization: token 123456789'</span>
+<p><code>GET https://app.fossa.io/api/organization/invoices</code></p>
+<h2 id='list-issues'>List Issues</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/organization/issues'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -804,8 +804,8 @@ If your organization uses a custom billing scheme, or you're using an on-premise
 </tr>
 </tbody></table>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>GET https://api.fossa.io/api/organization/issues</code></p>
-<h2 id='get-summary'>Get Summary</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/organization/summary'</span> <span class="s1">'Authorization: token 123456789'</span>
+<p><code>GET https://app.fossa.io/api/organization/issues</code></p>
+<h2 id='get-summary'>Get Summary</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/organization/summary'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>This endpoint returns an HTML report.</p>
@@ -814,8 +814,8 @@ If your organization uses a custom billing scheme, or you're using an on-premise
 <p>Retrieves your <code>Organization</code>&#39;s summary report. This report is an HTML page
 which can be loaded in an <code>&lt;iframe&gt;</code> for display.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>GET https://api.fossa.io/api/organization/summary</code></p>
-<h2 id='get-statistics'>Get Statistics</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/organization/stats'</span> <span class="s1">'Authorization: token 123456789'</span>
+<p><code>GET https://app.fossa.io/api/organization/summary</code></p>
+<h2 id='get-statistics'>Get Statistics</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/organization/stats'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -831,8 +831,8 @@ which can be loaded in an <code>&lt;iframe&gt;</code> for display.</p>
 </span></code></pre>
 <p>Returns interesting summary statistics for the organization.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
-<p><code>GET https://api.fossa.io/api/organization/stats</code></p>
-<h2 id='search-components'>Search Components</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/organization/search'</span> <span class="s1">'Authorization: token 123456789'</span>
+<p><code>GET https://app.fossa.io/api/organization/stats</code></p>
+<h2 id='search-components'>Search Components</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/organization/search'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in shape of:</p>
@@ -906,7 +906,7 @@ which can be loaded in an <code>&lt;iframe&gt;</code> for display.</p>
 <p>Searches through all issues in an organization. This endpoint can filter by the
 whether an issue has been resolved.</p>
 <h3 id='http-request-7'>HTTP Request</h3>
-<p><code>GET https://api.fossa.io/api/organization/search</code></p>
+<p><code>GET https://app.fossa.io/api/organization/search</code></p>
 <h3 id='query-parameters-2'>Query parameters</h3>
 <table><thead>
 <tr>
@@ -929,7 +929,7 @@ whether an issue has been resolved.</p>
 <td>If set, filters the returned issues. Can be <code>resolvedIssues</code> or <code>unresolvedIssues</code>.</td>
 </tr>
 </tbody></table>
-<h2 id='scan-components'>Scan Components</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/organization/scan'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='scan-components'>Scan Components</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/organization/scan'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns the number of scanned projects.</p>
@@ -940,7 +940,7 @@ whether an issue has been resolved.</p>
 large number of projects have been updated recently, or if your organization has
 adopted a new policy.</p>
 <h3 id='http-request-8'>HTTP Request</h3>
-<p><code>GET https://api.fossa.io/api/organization/scan</code></p>
+<p><code>GET https://app.fossa.io/api/organization/scan</code></p>
 <h1 id='users'>Users</h1>
 <blockquote>
 <p>An example User:</p>
@@ -1023,7 +1023,7 @@ adopted a new policy.</p>
 </span></code></pre>
 <p><code>Organization</code>s contain many <code>User</code>s. Each <code>User</code> corresponds to an account
 signed up with the current FOSSA instance.</p>
-<h2 id='list-users'>List Users</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/users'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='list-users'>List Users</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/users'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -1046,7 +1046,7 @@ signed up with the current FOSSA instance.</p>
 <p>This endpoint supports the standard filtering, search, sorting, and pagination
 operators.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://api.fossa.io/api/users</code></p>
+<p><code>GET https://app.fossa.io/api/users</code></p>
 <h3 id='query-parameters'>Query parameters</h3>
 <table><thead>
 <tr>
@@ -1093,7 +1093,7 @@ operators.</p>
 <td>Begin pagination at the specified row offset.</td>
 </tr>
 </tbody></table>
-<h2 id='retrieve-user'>Retrieve User</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/users/132'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='retrieve-user'>Retrieve User</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/users/132'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -1104,7 +1104,7 @@ operators.</p>
 </code></pre>
 <p>Retrieve a <code>User</code> by ID.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://api.fossa.io/api/users/:userId</code></p>
+<p><code>GET https://app.fossa.io/api/users/:userId</code></p>
 <h3 id='path-parameters'>Path parameters</h3>
 <table><thead>
 <tr>
@@ -1121,7 +1121,7 @@ operators.</p>
 <td>The ID of the user to retrieve.</td>
 </tr>
 </tbody></table>
-<h2 id='update-user'>Update User</h2><pre class="highlight shell"><code>http --form PUT <span class="s1">'http://api.fossa.io/api/users/132'</span> <span class="nv">password</span><span class="o">=</span>correcthorsebatterystaple <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='update-user'>Update User</h2><pre class="highlight shell"><code>http --form PUT <span class="s1">'https://app.fossa.io/api/users/132'</span> <span class="nv">password</span><span class="o">=</span>correcthorsebatterystaple <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -1175,7 +1175,7 @@ operators.</p>
 </code></pre>
 <p>Updates <code>User</code>s.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>PUT http://api.fossa.io/api/users/:userId</code></p>
+<p><code>PUT https://app.fossa.io/api/users/:userId</code></p>
 <h3 id='path-parameters-2'>Path parameters</h3>
 <table><thead>
 <tr>
@@ -1208,7 +1208,7 @@ operators.</p>
 <td>Sets the field&#39;s value. If not specified, fields will remain unchanged.</td>
 </tr>
 </tbody></table>
-<h2 id='create-api-token'>Create API Token</h2><pre class="highlight shell"><code>http POST <span class="s1">'http://api.fossa.io/api/user/:userId/api_token'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='create-api-token'>Create API Token</h2><pre class="highlight shell"><code>http POST <span class="s1">'https://app.fossa.io/api/user/:userId/api_token'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -1217,7 +1217,7 @@ operators.</p>
 </span></code></pre>
 <p>Creates a new API token. Load the user to see the created token.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>POST https://api.fossa.io/api/user/:userId/api_token</code></p>
+<p><code>POST https://app.fossa.io/api/user/:userId/api_token</code></p>
 <h3 id='path-parameters-3'>Path parameters</h3>
 <table><thead>
 <tr>
@@ -1234,7 +1234,7 @@ operators.</p>
 <td>The ID of the user to create a token for.</td>
 </tr>
 </tbody></table>
-<h2 id='revoke-api-token'>Revoke API Token</h2><pre class="highlight shell"><code>http DELETE <span class="s1">'http://api.fossa.io/api/user/:userId/api_token?token=123456789'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='revoke-api-token'>Revoke API Token</h2><pre class="highlight shell"><code>http DELETE <span class="s1">'https://app.fossa.io/api/user/:userId/api_token?token=123456789'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -1243,7 +1243,7 @@ operators.</p>
 </span></code></pre>
 <p>Revokes an API token.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>POST https://api.fossa.io/api/user/:userId/api_token</code></p>
+<p><code>POST https://app.fossa.io/api/user/:userId/api_token</code></p>
 <h3 id='query-parameters-3'>Query parameters</h3>
 <table><thead>
 <tr>
@@ -1335,7 +1335,7 @@ operators.</p>
 to configure how FOSSA handles the components of projects.</p>
 
 <p>To modify the rules in a policy, use the <a href="#rules"><code>Rule</code></a> operations.</p>
-<h2 id='create-policy'>Create Policy</h2><pre class="highlight shell"><code>http --form POST <span class="s1">'http://api.fossa.io/api/policies'</span> <span class="nv">title</span><span class="o">=</span><span class="s1">'test policy'</span> <span class="nv">description</span><span class="o">=</span><span class="s1">'test description'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='create-policy'>Create Policy</h2><pre class="highlight shell"><code>http --form POST <span class="s1">'https://app.fossa.io/api/policies'</span> <span class="nv">title</span><span class="o">=</span><span class="s1">'test policy'</span> <span class="nv">description</span><span class="o">=</span><span class="s1">'test description'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -1357,7 +1357,7 @@ to configure how FOSSA handles the components of projects.</p>
 To create Policies from templates, use the special <code>template</code> key. Valid values include <code>single_binary</code>, <code>hosted_service</code>, and <code>standard_bundle</code>.
 </aside>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST http://api.fossa.io/api/policies</code></p>
+<p><code>POST https://app.fossa.io/api/policies</code></p>
 <h3 id='query-parameters'>Query parameters</h3>
 <table><thead>
 <tr>
@@ -1374,7 +1374,7 @@ To create Policies from templates, use the special <code>template</code> key. Va
 <td>Sets the field&#39;s value. If not specified, fields will default to their zero value.</td>
 </tr>
 </tbody></table>
-<h2 id='list-policies'>List Policies</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/policies'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='list-policies'>List Policies</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/policies'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -1397,7 +1397,7 @@ To create Policies from templates, use the special <code>template</code> key. Va
 <p>This endpoint supports the standard filtering, search, sorting, and pagination
 operators.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://api.fossa.io/api/policies</code></p>
+<p><code>GET https://app.fossa.io/api/policies</code></p>
 <h3 id='query-parameters-2'>Query parameters</h3>
 <table><thead>
 <tr>
@@ -1444,7 +1444,7 @@ operators.</p>
 <td>Begin pagination at the specified row offset.</td>
 </tr>
 </tbody></table>
-<h2 id='retrieve-policy'>Retrieve Policy</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/policies/4679'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='retrieve-policy'>Retrieve Policy</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/policies/4679'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -1455,7 +1455,7 @@ operators.</p>
 </code></pre>
 <p>Retrieve a <code>Policy</code> by ID.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://api.fossa.io/api/policies/:policyId</code></p>
+<p><code>GET https://app.fossa.io/api/policies/:policyId</code></p>
 <h3 id='path-parameters'>Path parameters</h3>
 <table><thead>
 <tr>
@@ -1472,7 +1472,7 @@ operators.</p>
 <td>The ID of the policy to retrieve.</td>
 </tr>
 </tbody></table>
-<h2 id='update-policy'>Update Policy</h2><pre class="highlight shell"><code>http --form PUT <span class="s1">'http://api.fossa.io/api/policies/4679'</span> <span class="nv">default_action</span><span class="o">=</span>APPROVE <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='update-policy'>Update Policy</h2><pre class="highlight shell"><code>http --form PUT <span class="s1">'https://app.fossa.io/api/policies/4679'</span> <span class="nv">default_action</span><span class="o">=</span>APPROVE <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -1490,7 +1490,7 @@ operators.</p>
 </code></pre>
 <p>Updates <code>Policy</code>s.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>PUT http://api.fossa.io/api/policies/:policyId</code></p>
+<p><code>PUT https://app.fossa.io/api/policies/:policyId</code></p>
 <h3 id='path-parameters-2'>Path parameters</h3>
 <table><thead>
 <tr>
@@ -1523,7 +1523,7 @@ operators.</p>
 <td>Sets the field&#39;s value. If not specified, fields will remain unchanged.</td>
 </tr>
 </tbody></table>
-<h2 id='delete-policy'>Delete Policy</h2><pre class="highlight shell"><code>http DELETE <span class="s1">'http://api.fossa.io/api/policies/4679'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='delete-policy'>Delete Policy</h2><pre class="highlight shell"><code>http DELETE <span class="s1">'https://app.fossa.io/api/policies/4679'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -1532,7 +1532,7 @@ operators.</p>
 </span></code></pre>
 <p>Delete a <code>Policy</code> by ID.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>DELETE https://api.fossa.io/api/policies/:policyId</code></p>
+<p><code>DELETE https://app.fossa.io/api/policies/:policyId</code></p>
 <h3 id='path-parameters-3'>Path parameters</h3>
 <table><thead>
 <tr>
@@ -1578,7 +1578,7 @@ operators.</p>
 when certain conditions are met. Many rules make up a <code>Policy</code>, and each <code>Project</code>
 and <code>Organization</code> may have its own <code>Policy</code> to configure how FOSSA handles
 different components.</p>
-<h2 id='create-rule'>Create Rule</h2><pre class="highlight shell"><code>http --form POST <span class="s1">'http://api.fossa.io/api/rules'</span> <span class="nv">action</span><span class="o">=</span>FLAG <span class="nv">target</span><span class="o">=</span>license <span class="nv">policyId</span><span class="o">=</span>252 <span class="nv">targetId</span><span class="o">=</span>532b52275d0187c662000038 <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='create-rule'>Create Rule</h2><pre class="highlight shell"><code>http --form POST <span class="s1">'https://app.fossa.io/api/rules'</span> <span class="nv">action</span><span class="o">=</span>FLAG <span class="nv">target</span><span class="o">=</span>license <span class="nv">policyId</span><span class="o">=</span>252 <span class="nv">targetId</span><span class="o">=</span>532b52275d0187c662000038 <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -1606,7 +1606,7 @@ different components.</p>
 </code></pre>
 <p>Creates new Rules.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST http://api.fossa.io/api/rules</code></p>
+<p><code>POST https://app.fossa.io/api/rules</code></p>
 <h3 id='query-parameters'>Query parameters</h3>
 <table><thead>
 <tr>
@@ -1623,7 +1623,7 @@ different components.</p>
 <td>Sets the field&#39;s value. If not specified, fields will default to their zero value.</td>
 </tr>
 </tbody></table>
-<h2 id='list-rules'>List Rules</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/rules'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='list-rules'>List Rules</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/rules'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -1646,7 +1646,7 @@ different components.</p>
 <p>This endpoint supports the standard filtering, search, sorting, and pagination
 operators.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://api.fossa.io/api/rules</code></p>
+<p><code>GET https://app.fossa.io/api/rules</code></p>
 <h3 id='query-parameters-2'>Query parameters</h3>
 <table><thead>
 <tr>
@@ -1693,7 +1693,7 @@ operators.</p>
 <td>Begin pagination at the specified row offset.</td>
 </tr>
 </tbody></table>
-<h2 id='retrieve-rule'>Retrieve Rule</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/rules/157406'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='retrieve-rule'>Retrieve Rule</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/rules/157406'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -1704,7 +1704,7 @@ operators.</p>
 </code></pre>
 <p>Retrieve a <code>Rule</code> by ID.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://api.fossa.io/api/rules/:ruleId</code></p>
+<p><code>GET https://app.fossa.io/api/rules/:ruleId</code></p>
 <h3 id='path-parameters'>Path parameters</h3>
 <table><thead>
 <tr>
@@ -1721,7 +1721,7 @@ operators.</p>
 <td>The ID of the rule to retrieve.</td>
 </tr>
 </tbody></table>
-<h2 id='update-rule'>Update Rule</h2><pre class="highlight shell"><code>http --form PUT <span class="s1">'http://api.fossa.io/api/rules/157406'</span> <span class="nv">action</span><span class="o">=</span>APPROVE <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='update-rule'>Update Rule</h2><pre class="highlight shell"><code>http --form PUT <span class="s1">'https://app.fossa.io/api/rules/157406'</span> <span class="nv">action</span><span class="o">=</span>APPROVE <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -1749,7 +1749,7 @@ operators.</p>
 </code></pre>
 <p>Updates <code>Rule</code>s.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>PUT http://api.fossa.io/api/rules/:ruleId</code></p>
+<p><code>PUT https://app.fossa.io/api/rules/:ruleId</code></p>
 <h3 id='path-parameters-2'>Path parameters</h3>
 <table><thead>
 <tr>
@@ -1782,7 +1782,7 @@ operators.</p>
 <td>Sets the field&#39;s value. If not specified, fields will remain unchanged.</td>
 </tr>
 </tbody></table>
-<h2 id='delete-rule'>Delete Rule</h2><pre class="highlight shell"><code>http DELETE <span class="s1">'http://api.fossa.io/api/rules/157406'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='delete-rule'>Delete Rule</h2><pre class="highlight shell"><code>http DELETE <span class="s1">'https://app.fossa.io/api/rules/157406'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -1791,7 +1791,7 @@ operators.</p>
 </span></code></pre>
 <p>Delete a <code>Rule</code> by ID.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>DELETE https://api.fossa.io/api/rules/:ruleId</code></p>
+<p><code>DELETE https://app.fossa.io/api/rules/:ruleId</code></p>
 <h3 id='path-parameters-3'>Path parameters</h3>
 <table><thead>
 <tr>
@@ -1935,7 +1935,7 @@ repository. <code>Project</code>s may have dependencies on other <code>Project</
 <p>When we refer to a <code>Project</code>, we often mean a &quot;top-level&quot; project i.e. one that
 a user explicitly imported for analysis. When we talk about dependencies that
 are brought in by top-level projects, we often use the term <code>Component</code>.</p>
-<h2 id='list-projects'>List Projects</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/projects'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='list-projects'>List Projects</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/projects'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -1958,7 +1958,7 @@ are brought in by top-level projects, we often use the term <code>Component</cod
 <p>This endpoint supports the standard filtering, search, sorting, and pagination
 operators.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://api.fossa.io/api/projects</code></p>
+<p><code>GET https://app.fossa.io/api/projects</code></p>
 <h3 id='query-parameters'>Query parameters</h3>
 <table><thead>
 <tr>
@@ -2005,7 +2005,7 @@ operators.</p>
 <td>Begin pagination at the specified row offset.</td>
 </tr>
 </tbody></table>
-<h2 id='retrieve-project'>Retrieve Project</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/projects/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='retrieve-project'>Retrieve Project</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/projects/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -2016,7 +2016,7 @@ operators.</p>
 </code></pre>
 <p>Retrieve a <code>Project</code> by ID.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://api.fossa.io/api/projects/:projectId</code></p>
+<p><code>GET https://app.fossa.io/api/projects/:projectId</code></p>
 <h3 id='path-parameters'>Path parameters</h3>
 <table><thead>
 <tr>
@@ -2033,7 +2033,7 @@ operators.</p>
 <td>The ID of the project to retrieve.</td>
 </tr>
 </tbody></table>
-<h2 id='get-project-badge'>Get Project Badge</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/projects/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway.svg'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='get-project-badge'>Get Project Badge</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/projects/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway.svg'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Renders the project&#39;s license scan status badge in SVG format.</p>
@@ -2041,7 +2041,7 @@ operators.</p>
 
 <p>Renders a project&#39;s license scan status badge.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://api.fossa.io/api/projects/:projectId.svg</code></p>
+<p><code>GET https://app.fossa.io/api/projects/:projectId.svg</code></p>
 <h3 id='query-parameters-2'>Query parameters</h3>
 <table><thead>
 <tr>
@@ -2074,7 +2074,7 @@ operators.</p>
 <td>The ID of the project for which to render a status badge.</td>
 </tr>
 </tbody></table>
-<h2 id='list-project-revisions'>List Project Revisions</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/projects/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway/revisions'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='list-project-revisions'>List Project Revisions</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/projects/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway/revisions'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -2097,7 +2097,7 @@ operators.</p>
 <p>This endpoint supports the standard filtering, search, sorting, and pagination
 operators.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>GET http://api.fossa.io/api/projects/:projectId/revisions</code></p>
+<p><code>GET https://app.fossa.io/api/projects/:projectId/revisions</code></p>
 <h3 id='query-parameters-3'>Query parameters</h3>
 <table><thead>
 <tr>
@@ -2404,7 +2404,7 @@ operators.</p>
 <p>A <code>Revision</code> represents a <code>Project</code> at a specific point in time. This is
 specified in a source-dependent way, such as git commit hashes, NPM package
 versions, etc.</p>
-<h2 id='retrieve-revision'>Retrieve Revision</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='retrieve-revision'>Retrieve Revision</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -2415,7 +2415,7 @@ versions, etc.</p>
 </code></pre>
 <p>Retrieve a Revision by ID.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://api.fossa.io/api/revisions/:revisionId</code></p>
+<p><code>GET https://app.fossa.io/api/revisions/:revisionId</code></p>
 <h3 id='path-parameters'>Path parameters</h3>
 <table><thead>
 <tr>
@@ -2432,7 +2432,7 @@ versions, etc.</p>
 <td>The ID of the revision to retrieve.</td>
 </tr>
 </tbody></table>
-<h2 id='rebuild-revision'>Rebuild Revision</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/rebuild'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='rebuild-revision'>Rebuild Revision</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/rebuild'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -2446,7 +2446,7 @@ versions, etc.</p>
 <p>Queues another round of dynamic analysis for a revision. This is useful for
 resolving problems when builds or analysis rounds are flakey or misconfigured.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://api.fossa.io/api/revisions/:revisionId/rebuild</code></p>
+<p><code>GET https://app.fossa.io/api/revisions/:revisionId/rebuild</code></p>
 <h3 id='path-parameters-2'>Path parameters</h3>
 <table><thead>
 <tr>
@@ -2463,7 +2463,7 @@ resolving problems when builds or analysis rounds are flakey or misconfigured.</
 <td>The ID of the revision to rebuild.</td>
 </tr>
 </tbody></table>
-<h2 id='list-revision-dependencies'>List Revision Dependencies</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/dependencies'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='list-revision-dependencies'>List Revision Dependencies</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/dependencies'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -2476,7 +2476,7 @@ resolving problems when builds or analysis rounds are flakey or misconfigured.</
 </code></pre>
 <p>Loads the dependencies of a <code>Revision</code>.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://api.fossa.io/api/revisions/:revisionId/dependencies</code></p>
+<p><code>GET https://app.fossa.io/api/revisions/:revisionId/dependencies</code></p>
 <h3 id='query-parameters'>Query parameters</h3>
 <table><thead>
 <tr>
@@ -2515,7 +2515,7 @@ resolving problems when builds or analysis rounds are flakey or misconfigured.</
 <td>The ID of the revision for which to load dependencies.</td>
 </tr>
 </tbody></table>
-<h2 id='list-revision-dependency-graph-edges'>List Revision Dependency Graph Edges</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/edges'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='list-revision-dependency-graph-edges'>List Revision Dependency Graph Edges</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/edges'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -2651,7 +2651,7 @@ resolving problems when builds or analysis rounds are flakey or misconfigured.</
 </span></code></pre>
 <p>Loads the dependency graph a <code>Revision</code> as a directed adjacency list.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>GET https://api.fossa.io/api/revisions/:revisionId/edges</code></p>
+<p><code>GET https://app.fossa.io/api/revisions/:revisionId/edges</code></p>
 <h3 id='path-parameters-4'>Path parameters</h3>
 <table><thead>
 <tr>
@@ -2668,7 +2668,7 @@ resolving problems when builds or analysis rounds are flakey or misconfigured.</
 <td>The ID of the revision for which to load the dependency graph.</td>
 </tr>
 </tbody></table>
-<h2 id='list-revision-dependency-paths'>List Revision Dependency Paths</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/paths?locator=npm%2Bbody-parser%241.18.2'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='list-revision-dependency-paths'>List Revision Dependency Paths</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/paths?locator=npm%2Bbody-parser%241.18.2'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -2677,7 +2677,7 @@ resolving problems when builds or analysis rounds are flakey or misconfigured.</
 </span></code></pre>
 <p>Loads the paths from a project to a specified target dependency.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>GET https://api.fossa.io/api/revisions/:revisionId/paths</code></p>
+<p><code>GET https://app.fossa.io/api/revisions/:revisionId/paths</code></p>
 <h3 id='query-parameters-2'>Query parameters</h3>
 <table><thead>
 <tr>
@@ -2710,7 +2710,7 @@ resolving problems when builds or analysis rounds are flakey or misconfigured.</
 <td>The ID of the source revision for which to load dependency paths.</td>
 </tr>
 </tbody></table>
-<h2 id='list-revision-licenses'>List Revision Licenses</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/licenses'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='list-revision-licenses'>List Revision Licenses</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/licenses'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -2861,7 +2861,7 @@ resolving problems when builds or analysis rounds are flakey or misconfigured.</
 <p>Loads the licenses of a project and the dependencies from which those licenses
 are brought in.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
-<p><code>GET https://api.fossa.io/api/revisions/:revisionId/licenses</code></p>
+<p><code>GET https://app.fossa.io/api/revisions/:revisionId/licenses</code></p>
 <h3 id='path-parameters-6'>Path parameters</h3>
 <table><thead>
 <tr>
@@ -2878,7 +2878,7 @@ are brought in.</p>
 <td>The ID of the revision for which to load licenses.</td>
 </tr>
 </tbody></table>
-<h2 id='list-revision-obligations'>List Revision Obligations</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/todos'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='list-revision-obligations'>List Revision Obligations</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/todos'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -2893,7 +2893,7 @@ are brought in.</p>
 </span></code></pre>
 <p>Loads the obligations of a project from the licenses applied to it.</p>
 <h3 id='http-request-7'>HTTP Request</h3>
-<p><code>GET https://api.fossa.io/api/revisions/:revisionId/todos</code></p>
+<p><code>GET https://app.fossa.io/api/revisions/:revisionId/todos</code></p>
 <h3 id='query-parameters-3'>Query parameters</h3>
 <table><thead>
 <tr>
@@ -2932,7 +2932,7 @@ are brought in.</p>
 <td>The ID of the source revision for which to load obligations.</td>
 </tr>
 </tbody></table>
-<h2 id='get-revision-attribution-report'>Get Revision Attribution Report</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/attribution'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='get-revision-attribution-report'>Get Revision Attribution Report</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/attribution'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>This endpoint returns an HTML report.</p>
@@ -2941,7 +2941,7 @@ are brought in.</p>
 <p>Generates an HTML report for this project, listing its deep dependencies,
 licenses, obligations, etc.</p>
 <h3 id='http-request-8'>HTTP Request</h3>
-<p><code>GET https://api.fossa.io/api/revisions/:revisionId/attribution</code></p>
+<p><code>GET https://app.fossa.io/api/revisions/:revisionId/attribution</code></p>
 <h3 id='query-parameters-4'>Query parameters</h3>
 <table><thead>
 <tr>
@@ -3088,7 +3088,7 @@ licenses, obligations, etc.</p>
 </span></code></pre>
 <p>A <code>Build</code> of a <code>Revision</code> represents the task and result of performing dynamic
 analysis on a particular <code>Revision</code>.</p>
-<h2 id='list-builds'>List Builds</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/builds'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='list-builds'>List Builds</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/builds'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -3111,7 +3111,7 @@ analysis on a particular <code>Revision</code>.</p>
 <p>This endpoint supports the standard filtering, search, sorting, and pagination
 operators.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://api.fossa.io/api/builds</code></p>
+<p><code>GET https://app.fossa.io/api/builds</code></p>
 <h3 id='query-parameters'>Query parameters</h3>
 <table><thead>
 <tr>
@@ -3158,7 +3158,7 @@ operators.</p>
 <td>Begin pagination at the specified row offset.</td>
 </tr>
 </tbody></table>
-<h2 id='retrieve-build'>Retrieve Build</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/builds/326982'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='retrieve-build'>Retrieve Build</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/builds/326982'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -3169,7 +3169,7 @@ operators.</p>
 </code></pre>
 <p>Retrieve a Build by ID.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://api.fossa.io/api/builds/:buildId</code></p>
+<p><code>GET https://app.fossa.io/api/builds/:buildId</code></p>
 <h3 id='path-parameters'>Path parameters</h3>
 <table><thead>
 <tr>
@@ -3327,7 +3327,7 @@ operators.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>A <code>License</code> refers to a particular type of license that FOSSA has discovered.</p>
-<h2 id='list-licenses'>List Licenses</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/licenses'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='list-licenses'>List Licenses</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/licenses'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -3350,7 +3350,7 @@ operators.</p>
 <p>This endpoint supports the standard filtering, search, sorting, and pagination
 operators.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://api.fossa.io/api/licenses</code></p>
+<p><code>GET https://app.fossa.io/api/licenses</code></p>
 <h3 id='query-parameters'>Query parameters</h3>
 <table><thead>
 <tr>
@@ -3397,7 +3397,7 @@ operators.</p>
 <td>Begin pagination at the specified row offset.</td>
 </tr>
 </tbody></table>
-<h2 id='retrieve-license'>Retrieve License</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/licenses/53a0ff8844c1715555000131'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='retrieve-license'>Retrieve License</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/licenses/53a0ff8844c1715555000131'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -3408,7 +3408,7 @@ operators.</p>
 </code></pre>
 <p>Retrieve a <code>License</code> by ID.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://api.fossa.io/api/license/:licenseId</code></p>
+<p><code>GET https://app.fossa.io/api/license/:licenseId</code></p>
 <h3 id='path-parameters'>Path parameters</h3>
 <table><thead>
 <tr>
@@ -3450,7 +3450,7 @@ operators.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Teams are a way of organizing projects and giving users access to a group of projects.</p>
-<h2 id='create-team'>Create Team</h2><pre class="highlight shell"><code>http --form POST <span class="s1">'http://api.fossa.io/api/teams'</span> <span class="nv">name</span><span class="o">=</span><span class="s1">'new team'</span> <span class="nv">autoAddUsers</span><span class="o">=</span><span class="s1">'true'</span> <span class="nv">autoAddProjects</span><span class="o">=</span><span class="s1">'false'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='create-team'>Create Team</h2><pre class="highlight shell"><code>http --form POST <span class="s1">'https://app.fossa.io/api/teams'</span> <span class="nv">name</span><span class="o">=</span><span class="s1">'new team'</span> <span class="nv">autoAddUsers</span><span class="o">=</span><span class="s1">'true'</span> <span class="nv">autoAddProjects</span><span class="o">=</span><span class="s1">'false'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -3468,7 +3468,7 @@ operators.</p>
 </code></pre>
 <p>Creates a new team.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST http://api.fossa.io/api/teams</code></p>
+<p><code>POST https://app.fossa.io/api/teams</code></p>
 <h3 id='body-parameters'>Body parameters</h3>
 <table><thead>
 <tr>
@@ -3497,7 +3497,7 @@ operators.</p>
 <td>Whether newly imported projects should be automatically added to this team (default false)</td>
 </tr>
 </tbody></table>
-<h2 id='list-teams'>List Teams</h2><pre class="highlight shell"><code>http <span class="s1">'http://api.fossa.io/api/teams'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='list-teams'>List Teams</h2><pre class="highlight shell"><code>http <span class="s1">'https://app.fossa.io/api/teams'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -3517,8 +3517,8 @@ operators.</p>
 </code></pre>
 <p>Lists all teams, the IDs of the users that have access to each team, and the locators of the projects in each team.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://api.fossa.io/api/teams</code></p>
-<h2 id='update-team'>Update Team</h2><pre class="highlight shell"><code>http --form PUT <span class="s1">'http://api.fossa.io/api/teams/1'</span> <span class="nv">name</span><span class="o">=</span><span class="s1">'changed team'</span> <span class="s1">'Authorization: token 123456789'</span>
+<p><code>GET https://app.fossa.io/api/teams</code></p>
+<h2 id='update-team'>Update Team</h2><pre class="highlight shell"><code>http --form PUT <span class="s1">'https://app.fossa.io/api/teams/1'</span> <span class="nv">name</span><span class="o">=</span><span class="s1">'changed team'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -3546,7 +3546,7 @@ operators.</p>
 </code></pre>
 <p>Updates Teams.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>PUT http://api.fossa.io/api/teams/:teamId</code></p>
+<p><code>PUT https://app.fossa.io/api/teams/:teamId</code></p>
 <h3 id='path-parameters'>Path parameters</h3>
 <table><thead>
 <tr>
@@ -3579,7 +3579,7 @@ operators.</p>
 <td>Sets the field&#39;s value. If not specified, fields will remain unchanged.</td>
 </tr>
 </tbody></table>
-<h2 id='delete-team'>Delete Team</h2><pre class="highlight shell"><code>http DELETE <span class="s1">'http://api.fossa.io/api/teams/5'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='delete-team'>Delete Team</h2><pre class="highlight shell"><code>http DELETE <span class="s1">'https://app.fossa.io/api/teams/5'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns an HTTP status of 200</p>
@@ -3587,7 +3587,7 @@ operators.</p>
 
 <p>Delete a Team by ID.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>DELETE https://api.fossa.io/api/teams/:teamId</code></p>
+<p><code>DELETE https://app.fossa.io/api/teams/:teamId</code></p>
 <h3 id='path-parameters-2'>Path parameters</h3>
 <table><thead>
 <tr>
@@ -3604,7 +3604,7 @@ operators.</p>
 <td>The ID of the team to delete.</td>
 </tr>
 </tbody></table>
-<h2 id='manage-users'>Manage Users</h2><pre class="highlight shell"><code>http --form PUT <span class="s1">'http://api.fossa.io/api/teams/1/users'</span> <span class="nv">action</span><span class="o">=</span><span class="s1">'replace'</span> <span class="nv">users</span><span class="o">=</span>1 <span class="nv">users</span><span class="o">=</span>2 <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='manage-users'>Manage Users</h2><pre class="highlight shell"><code>http --form PUT <span class="s1">'https://app.fossa.io/api/teams/1/users'</span> <span class="nv">action</span><span class="o">=</span><span class="s1">'replace'</span> <span class="nv">users</span><span class="o">=</span>1 <span class="nv">users</span><span class="o">=</span>2 <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -3620,7 +3620,7 @@ operators.</p>
 </code></pre>
 <p>Add or remove users from a team.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>PUT http://api.fossa.io/api/teams/:teamId/users</code></p>
+<p><code>PUT https://app.fossa.io/api/teams/:teamId/users</code></p>
 <h3 id='path-parameters-3'>Path parameters</h3>
 <table><thead>
 <tr>
@@ -3653,7 +3653,7 @@ operators.</p>
 <td>Whether to add or remove the specified user ids from the team. <code>replace</code> will replace the current list of team users with the provided user ids. (default replace)</td>
 </tr>
 </tbody></table>
-<h2 id='manage-projects'>Manage Projects</h2><pre class="highlight shell"><code>http --form PUT <span class="s1">'http://api.fossa.io/api/teams/1/projects'</span> <span class="nv">action</span><span class="o">=</span><span class="s1">'replace'</span> <span class="nv">projects</span><span class="o">=</span><span class="s1">'git+github.com/lackstein/cryptopals'</span> <span class="s1">'Authorization: token 123456789'</span>
+<h2 id='manage-projects'>Manage Projects</h2><pre class="highlight shell"><code>http --form PUT <span class="s1">'https://app.fossa.io/api/teams/1/projects'</span> <span class="nv">action</span><span class="o">=</span><span class="s1">'replace'</span> <span class="nv">projects</span><span class="o">=</span><span class="s1">'git+github.com/lackstein/cryptopals'</span> <span class="s1">'Authorization: token 123456789'</span>
 </code></pre>
 <blockquote>
 <p>Returns data in the shape of:</p>
@@ -3668,7 +3668,7 @@ operators.</p>
 </code></pre>
 <p>Add or remove projects from a Team.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
-<p><code>PUT http://api.fossa.io/api/teams/:teamId/projects</code></p>
+<p><code>PUT https://app.fossa.io/api/teams/:teamId/projects</code></p>
 <h3 id='path-parameters-4'>Path parameters</h3>
 <table><thead>
 <tr>
