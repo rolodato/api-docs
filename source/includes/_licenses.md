@@ -145,7 +145,7 @@ A `License` refers to a particular type of license that FOSSA has discovered.
 ## List Licenses
 
 ```bash
-http 'http://api.fossa.io/api/licenses' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/licenses' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -172,7 +172,7 @@ operators.
 
 ### HTTP Request
 
-`GET http://api.fossa.io/api/licenses`
+`GET https://app.fossa.io/api/licenses`
 
 ### Query parameters
 
@@ -188,7 +188,7 @@ operators.
 ## Retrieve License
 
 ```bash
-http 'http://api.fossa.io/api/licenses/53a0ff8844c1715555000131' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/licenses/53a0ff8844c1715555000131' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -203,7 +203,7 @@ Retrieve a `License` by ID.
 
 ### HTTP Request
 
-`GET https://api.fossa.io/api/license/:licenseId`
+`GET https://app.fossa.io/api/license/:licenseId`
 
 ### Path parameters
 

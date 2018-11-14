@@ -33,7 +33,7 @@ different components.
 ## Create Rule
 
 ```bash
-http --form POST 'http://api.fossa.io/api/rules' action=FLAG target=license policyId=252 targetId=532b52275d0187c662000038 'Authorization: token 123456789'
+http --form POST 'https://app.fossa.io/api/rules' action=FLAG target=license policyId=252 targetId=532b52275d0187c662000038 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -65,7 +65,7 @@ Creates new Rules.
 
 ### HTTP Request
 
-`POST http://api.fossa.io/api/rules`
+`POST https://app.fossa.io/api/rules`
 
 ### Query parameters
 
@@ -76,7 +76,7 @@ Creates new Rules.
 ## List Rules
 
 ```bash
-http 'http://api.fossa.io/api/rules' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/rules' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -103,7 +103,7 @@ operators.
 
 ### HTTP Request
 
-`GET http://api.fossa.io/api/rules`
+`GET https://app.fossa.io/api/rules`
 
 ### Query parameters
 
@@ -119,7 +119,7 @@ operators.
 ## Retrieve Rule
 
 ```bash
-http 'http://api.fossa.io/api/rules/157406' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/rules/157406' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -134,7 +134,7 @@ Retrieve a `Rule` by ID.
 
 ### HTTP Request
 
-`GET https://api.fossa.io/api/rules/:ruleId`
+`GET https://app.fossa.io/api/rules/:ruleId`
 
 ### Path parameters
 
@@ -145,7 +145,7 @@ Retrieve a `Rule` by ID.
 ## Update Rule
 
 ```bash
-http --form PUT 'http://api.fossa.io/api/rules/157406' action=APPROVE 'Authorization: token 123456789'
+http --form PUT 'https://app.fossa.io/api/rules/157406' action=APPROVE 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -177,7 +177,7 @@ Updates `Rule`s.
 
 ### HTTP Request
 
-`PUT http://api.fossa.io/api/rules/:ruleId`
+`PUT https://app.fossa.io/api/rules/:ruleId`
 
 ### Path parameters
 
@@ -194,7 +194,7 @@ Updates `Rule`s.
 ## Delete Rule
 
 ```bash
-http DELETE 'http://api.fossa.io/api/rules/157406' 'Authorization: token 123456789'
+http DELETE 'https://app.fossa.io/api/rules/157406' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -207,7 +207,7 @@ Delete a `Rule` by ID.
 
 ### HTTP Request
 
-`DELETE https://api.fossa.io/api/rules/:ruleId`
+`DELETE https://app.fossa.io/api/rules/:ruleId`
 
 ### Path parameters
 

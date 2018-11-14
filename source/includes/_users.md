@@ -86,7 +86,7 @@ signed up with the current FOSSA instance.
 ## List Users
 
 ```bash
-http 'http://api.fossa.io/api/users' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/users' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -113,7 +113,7 @@ operators.
 
 ### HTTP Request
 
-`GET http://api.fossa.io/api/users`
+`GET https://app.fossa.io/api/users`
 
 ### Query parameters
 
@@ -129,7 +129,7 @@ operators.
 ## Retrieve User
 
 ```bash
-http 'http://api.fossa.io/api/users/132' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/users/132' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -144,7 +144,7 @@ Retrieve a `User` by ID.
 
 ### HTTP Request
 
-`GET https://api.fossa.io/api/users/:userId`
+`GET https://app.fossa.io/api/users/:userId`
 
 ### Path parameters
 
@@ -155,7 +155,7 @@ Retrieve a `User` by ID.
 ## Update User
 
 ```bash
-http --form PUT 'http://api.fossa.io/api/users/132' password=correcthorsebatterystaple 'Authorization: token 123456789'
+http --form PUT 'https://app.fossa.io/api/users/132' password=correcthorsebatterystaple 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -213,7 +213,7 @@ Updates `User`s.
 
 ### HTTP Request
 
-`PUT http://api.fossa.io/api/users/:userId`
+`PUT https://app.fossa.io/api/users/:userId`
 
 ### Path parameters
 
@@ -230,7 +230,7 @@ Updates `User`s.
 ## Create API Token
 
 ```bash
-http POST 'http://api.fossa.io/api/user/:userId/api_token' 'Authorization: token 123456789'
+http POST 'https://app.fossa.io/api/user/:userId/api_token' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -243,7 +243,7 @@ Creates a new API token. Load the user to see the created token.
 
 ### HTTP Request
 
-`POST https://api.fossa.io/api/user/:userId/api_token`
+`POST https://app.fossa.io/api/user/:userId/api_token`
 
 ### Path parameters
 
@@ -254,7 +254,7 @@ Creates a new API token. Load the user to see the created token.
 ## Revoke API Token
 
 ```bash
-http DELETE 'http://api.fossa.io/api/user/:userId/api_token?token=123456789' 'Authorization: token 123456789'
+http DELETE 'https://app.fossa.io/api/user/:userId/api_token?token=123456789' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -267,7 +267,7 @@ Revokes an API token.
 
 ### HTTP Request
 
-`POST https://api.fossa.io/api/user/:userId/api_token`
+`POST https://app.fossa.io/api/user/:userId/api_token`
 
 ### Query parameters
 

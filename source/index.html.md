@@ -26,9 +26,9 @@ search: true
 Welcome to the FOSSA API! Each project analyzed by FOSSA exposes a REST API for
 custom integration with CI, scripts, and client applications.
 
-The public FOSSA API is available at `https://api.fossa.io/`. If you are
+The public FOSSA API is available at `https://app.fossa.io/`. If you are
 integrating with an on-premises installation, substitute the hostname of your
-on-premises installation for `api.fossa.io`.
+on-premises installation for `app.fossa.io`.
 
 Code examples use `http` from [HTTPie](https://httpie.org/).
 

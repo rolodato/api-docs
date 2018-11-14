@@ -131,7 +131,7 @@ are brought in by top-level projects, we often use the term `Component`.
 ## List Projects
 
 ```bash
-http 'http://api.fossa.io/api/projects' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/projects' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -158,7 +158,7 @@ operators.
 
 ### HTTP Request
 
-`GET http://api.fossa.io/api/projects`
+`GET https://app.fossa.io/api/projects`
 
 ### Query parameters
 
@@ -174,7 +174,7 @@ operators.
 ## Retrieve Project
 
 ```bash
-http 'http://api.fossa.io/api/projects/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/projects/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -189,7 +189,7 @@ Retrieve a `Project` by ID.
 
 ### HTTP Request
 
-`GET https://api.fossa.io/api/projects/:projectId`
+`GET https://app.fossa.io/api/projects/:projectId`
 
 ### Path parameters
 
@@ -200,7 +200,7 @@ Retrieve a `Project` by ID.
 ## Get Project Badge
 
 ```bash
-http 'http://api.fossa.io/api/projects/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway.svg' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/projects/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway.svg' 'Authorization: token 123456789'
 ```
 
 > Renders the project's license scan status badge in SVG format.
@@ -209,7 +209,7 @@ Renders a project's license scan status badge.
 
 ### HTTP Request
 
-`GET https://api.fossa.io/api/projects/:projectId.svg`
+`GET https://app.fossa.io/api/projects/:projectId.svg`
 
 ### Query parameters
 
@@ -226,7 +226,7 @@ Renders a project's license scan status badge.
 ## List Project Revisions
 
 ```bash
-http 'http://api.fossa.io/api/projects/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway/revisions' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/projects/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway/revisions' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -253,7 +253,7 @@ operators.
 
 ### HTTP Request
 
-`GET http://api.fossa.io/api/projects/:projectId/revisions`
+`GET https://app.fossa.io/api/projects/:projectId/revisions`
 
 ### Query parameters
 

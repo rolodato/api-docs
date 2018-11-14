@@ -29,7 +29,7 @@ Teams are a way of organizing projects and giving users access to a group of pro
 ## Create Team
 
 ```bash
-http --form POST 'http://api.fossa.io/api/teams' name='new team' autoAddUsers='true' autoAddProjects='false' 'Authorization: token 123456789'
+http --form POST 'https://app.fossa.io/api/teams' name='new team' autoAddUsers='true' autoAddProjects='false' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -51,7 +51,7 @@ Creates a new team.
 
 ### HTTP Request
 
-`POST http://api.fossa.io/api/teams`
+`POST https://app.fossa.io/api/teams`
 
 ### Body parameters
 
@@ -64,7 +64,7 @@ Creates a new team.
 ## List Teams
 
 ```bash
-http 'http://api.fossa.io/api/teams' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/teams' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -88,12 +88,12 @@ Lists all teams, the IDs of the users that have access to each team, and the loc
 
 ### HTTP Request
 
-`GET http://api.fossa.io/api/teams`
+`GET https://app.fossa.io/api/teams`
 
 ## Update Team
 
 ```bash
-http --form PUT 'http://api.fossa.io/api/teams/1' name='changed team' 'Authorization: token 123456789'
+http --form PUT 'https://app.fossa.io/api/teams/1' name='changed team' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -125,7 +125,7 @@ Updates Teams.
 
 ### HTTP Request
 
-`PUT http://api.fossa.io/api/teams/:teamId`
+`PUT https://app.fossa.io/api/teams/:teamId`
 
 ### Path parameters
 
@@ -142,7 +142,7 @@ Updates Teams.
 ## Delete Team
 
 ```bash
-http DELETE 'http://api.fossa.io/api/teams/5' 'Authorization: token 123456789'
+http DELETE 'https://app.fossa.io/api/teams/5' 'Authorization: token 123456789'
 ```
 
 > Returns an HTTP status of 200
@@ -151,7 +151,7 @@ Delete a Team by ID.
 
 ### HTTP Request
 
-`DELETE https://api.fossa.io/api/teams/:teamId`
+`DELETE https://app.fossa.io/api/teams/:teamId`
 
 ### Path parameters
 
@@ -162,7 +162,7 @@ Delete a Team by ID.
 ## Manage Users
 
 ```bash
-http --form PUT 'http://api.fossa.io/api/teams/1/users' action='replace' users=1 users=2 'Authorization: token 123456789'
+http --form PUT 'https://app.fossa.io/api/teams/1/users' action='replace' users=1 users=2 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -182,7 +182,7 @@ Add or remove users from a team.
 
 ### HTTP Request
 
-`PUT http://api.fossa.io/api/teams/:teamId/users`
+`PUT https://app.fossa.io/api/teams/:teamId/users`
 
 ### Path parameters
 
@@ -199,7 +199,7 @@ Add or remove users from a team.
 ## Manage Projects
 
 ```bash
-http --form PUT 'http://api.fossa.io/api/teams/1/projects' action='replace' projects='git+github.com/lackstein/cryptopals' 'Authorization: token 123456789'
+http --form PUT 'https://app.fossa.io/api/teams/1/projects' action='replace' projects='git+github.com/lackstein/cryptopals' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -218,7 +218,7 @@ Add or remove projects from a Team.
 
 ### HTTP Request
 
-`PUT http://api.fossa.io/api/teams/:teamId/projects`
+`PUT https://app.fossa.io/api/teams/:teamId/projects`
 
 ### Path parameters
 

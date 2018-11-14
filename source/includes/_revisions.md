@@ -248,7 +248,7 @@ versions, etc.
 ## Retrieve Revision
 
 ```bash
-http 'http://api.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -263,7 +263,7 @@ Retrieve a Revision by ID.
 
 ### HTTP Request
 
-`GET https://api.fossa.io/api/revisions/:revisionId`
+`GET https://app.fossa.io/api/revisions/:revisionId`
 
 ### Path parameters
 
@@ -274,7 +274,7 @@ Retrieve a Revision by ID.
 ## Rebuild Revision
 
 ```bash
-http 'http://api.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/rebuild' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/rebuild' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -292,7 +292,7 @@ resolving problems when builds or analysis rounds are flakey or misconfigured.
 
 ### HTTP Request
 
-`GET https://api.fossa.io/api/revisions/:revisionId/rebuild`
+`GET https://app.fossa.io/api/revisions/:revisionId/rebuild`
 
 ### Path parameters
 
@@ -303,7 +303,7 @@ resolving problems when builds or analysis rounds are flakey or misconfigured.
 ## List Revision Dependencies
 
 ```bash
-http 'http://api.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/dependencies' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/dependencies' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -320,7 +320,7 @@ Loads the dependencies of a `Revision`.
 
 ### HTTP Request
 
-`GET https://api.fossa.io/api/revisions/:revisionId/dependencies`
+`GET https://app.fossa.io/api/revisions/:revisionId/dependencies`
 
 ### Query parameters
 
@@ -338,7 +338,7 @@ Loads the dependencies of a `Revision`.
 ## List Revision Dependency Graph Edges
 
 ```bash
-http 'http://api.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/edges' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/edges' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -478,7 +478,7 @@ Loads the dependency graph a `Revision` as a directed adjacency list.
 
 ### HTTP Request
 
-`GET https://api.fossa.io/api/revisions/:revisionId/edges`
+`GET https://app.fossa.io/api/revisions/:revisionId/edges`
 
 ### Path parameters
 
@@ -489,7 +489,7 @@ Loads the dependency graph a `Revision` as a directed adjacency list.
 ## List Revision Dependency Paths
 
 ```bash
-http 'http://api.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/paths?locator=npm%2Bbody-parser%241.18.2' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/paths?locator=npm%2Bbody-parser%241.18.2' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -502,7 +502,7 @@ Loads the paths from a project to a specified target dependency.
 
 ### HTTP Request
 
-`GET https://api.fossa.io/api/revisions/:revisionId/paths`
+`GET https://app.fossa.io/api/revisions/:revisionId/paths`
 
 ### Query parameters
 
@@ -519,7 +519,7 @@ Loads the paths from a project to a specified target dependency.
 ## List Revision Licenses
 
 ```bash
-http 'http://api.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/licenses' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/licenses' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -674,7 +674,7 @@ are brought in.
 
 ### HTTP Request
 
-`GET https://api.fossa.io/api/revisions/:revisionId/licenses`
+`GET https://app.fossa.io/api/revisions/:revisionId/licenses`
 
 ### Path parameters
 
@@ -685,7 +685,7 @@ are brought in.
 ## List Revision Obligations
 
 ```bash
-http 'http://api.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/todos' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/todos' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -704,7 +704,7 @@ Loads the obligations of a project from the licenses applied to it.
 
 ### HTTP Request
 
-`GET https://api.fossa.io/api/revisions/:revisionId/todos`
+`GET https://app.fossa.io/api/revisions/:revisionId/todos`
 
 ### Query parameters
 
@@ -722,7 +722,7 @@ Loads the obligations of a project from the licenses applied to it.
 ## Get Revision Attribution Report
 
 ```bash
-http 'http://api.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/attribution' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/revisions/git%2Bgithub.com%2Filikebits%2Fdatasets-api-gateway%2461a994bba02325694e93ad697419e0acab5eed78/attribution' 'Authorization: token 123456789'
 ```
 
 > This endpoint returns an HTML report.
@@ -732,7 +732,7 @@ licenses, obligations, etc.
 
 ### HTTP Request
 
-`GET https://api.fossa.io/api/revisions/:revisionId/attribution`
+`GET https://app.fossa.io/api/revisions/:revisionId/attribution`
 
 ### Query parameters
 

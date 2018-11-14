@@ -76,7 +76,7 @@ analysis on a particular `Revision`.
 ## List Builds
 
 ```bash
-http 'http://api.fossa.io/api/builds' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/builds' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -103,7 +103,7 @@ operators.
 
 ### HTTP Request
 
-`GET http://api.fossa.io/api/builds`
+`GET https://app.fossa.io/api/builds`
 
 ### Query parameters
 
@@ -119,7 +119,7 @@ operators.
 ## Retrieve Build
 
 ```bash
-http 'http://api.fossa.io/api/builds/326982' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/builds/326982' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -134,7 +134,7 @@ Retrieve a Build by ID.
 
 ### HTTP Request
 
-`GET https://api.fossa.io/api/builds/:buildId`
+`GET https://app.fossa.io/api/builds/:buildId`
 
 ### Path parameters
 

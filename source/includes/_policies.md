@@ -63,7 +63,7 @@ To modify the rules in a policy, use the [`Rule`](#rules) operations.
 ## Create Policy
 
 ```bash
-http --form POST 'http://api.fossa.io/api/policies' title='test policy' description='test description' 'Authorization: token 123456789'
+http --form POST 'https://app.fossa.io/api/policies' title='test policy' description='test description' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -89,7 +89,7 @@ To create Policies from templates, use the special <code>template</code> key. Va
 
 ### HTTP Request
 
-`POST http://api.fossa.io/api/policies`
+`POST https://app.fossa.io/api/policies`
 
 ### Query parameters
 
@@ -100,7 +100,7 @@ To create Policies from templates, use the special <code>template</code> key. Va
 ## List Policies
 
 ```bash
-http 'http://api.fossa.io/api/policies' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/policies' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -127,7 +127,7 @@ operators.
 
 ### HTTP Request
 
-`GET http://api.fossa.io/api/policies`
+`GET https://app.fossa.io/api/policies`
 
 ### Query parameters
 
@@ -143,7 +143,7 @@ operators.
 ## Retrieve Policy
 
 ```bash
-http 'http://api.fossa.io/api/policies/4679' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/policies/4679' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -158,7 +158,7 @@ Retrieve a `Policy` by ID.
 
 ### HTTP Request
 
-`GET https://api.fossa.io/api/policies/:policyId`
+`GET https://app.fossa.io/api/policies/:policyId`
 
 ### Path parameters
 
@@ -169,7 +169,7 @@ Retrieve a `Policy` by ID.
 ## Update Policy
 
 ```bash
-http --form PUT 'http://api.fossa.io/api/policies/4679' default_action=APPROVE 'Authorization: token 123456789'
+http --form PUT 'https://app.fossa.io/api/policies/4679' default_action=APPROVE 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -191,7 +191,7 @@ Updates `Policy`s.
 
 ### HTTP Request
 
-`PUT http://api.fossa.io/api/policies/:policyId`
+`PUT https://app.fossa.io/api/policies/:policyId`
 
 ### Path parameters
 
@@ -208,7 +208,7 @@ Updates `Policy`s.
 ## Delete Policy
 
 ```bash
-http DELETE 'http://api.fossa.io/api/policies/4679' 'Authorization: token 123456789'
+http DELETE 'https://app.fossa.io/api/policies/4679' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -221,7 +221,7 @@ Delete a `Policy` by ID.
 
 ### HTTP Request
 
-`DELETE https://api.fossa.io/api/policies/:policyId`
+`DELETE https://app.fossa.io/api/policies/:policyId`
 
 ### Path parameters
 

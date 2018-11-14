@@ -130,7 +130,7 @@ belong to one organization at a time.
 ## Retrieve Organization
 
 ```bash
-http 'http://api.fossa.io/api/organizations/90' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/organizations/90' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -145,7 +145,7 @@ Retrieve an Organization by ID.
 
 ### HTTP Request
 
-`GET https://api.fossa.io/api/organizations/:organizationId`
+`GET https://app.fossa.io/api/organizations/:organizationId`
 
 ### Path parameters
 
@@ -160,7 +160,7 @@ You can retrieve the ID of your organization by examining your <code>User</code>
 ## Invite User
 
 ```bash
-http --form POST 'http://api.fossa.io/api/organizations/90/invite' emails[]=email1@example.com emails[]=email2@example.com 'Authorization: token 123456789'
+http --form POST 'https://app.fossa.io/api/organizations/90/invite' emails[]=email1@example.com emails[]=email2@example.com 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -173,7 +173,7 @@ Invite users to an organization by email.
 
 ### HTTP Request
 
-`POST https://api.fossa.io/api/organizations/:organizationId/invite?emails[]=test@example.com`
+`POST https://app.fossa.io/api/organizations/:organizationId/invite?emails[]=test@example.com`
 
 ### Path parameters
 
@@ -190,7 +190,7 @@ Invite users to an organization by email.
 ## List Invoices
 
 ```bash
-http 'http://api.fossa.io/api/organization/invoices' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/organization/invoices' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -211,12 +211,12 @@ If your organization uses a custom billing scheme, or you're using an on-premise
 
 ### HTTP Request
 
-`GET https://api.fossa.io/api/organization/invoices`
+`GET https://app.fossa.io/api/organization/invoices`
 
 ## List Issues
 
 ```bash
-http 'http://api.fossa.io/api/organization/issues' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/organization/issues' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -301,12 +301,12 @@ Returns a list of all issues for all projects in the organization.
 
 ### HTTP Request
 
-`GET https://api.fossa.io/api/organization/issues`
+`GET https://app.fossa.io/api/organization/issues`
 
 ## Get Summary
 
 ```bash
-http 'http://api.fossa.io/api/organization/summary' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/organization/summary' 'Authorization: token 123456789'
 ```
 
 > This endpoint returns an HTML report.
@@ -316,12 +316,12 @@ which can be loaded in an `<iframe>` for display.
 
 ### HTTP Request
 
-`GET https://api.fossa.io/api/organization/summary`
+`GET https://app.fossa.io/api/organization/summary`
 
 ## Get Statistics
 
 ```bash
-http 'http://api.fossa.io/api/organization/stats' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/organization/stats' 'Authorization: token 123456789'
 ```
 
 > Returns data in the shape of:
@@ -341,12 +341,12 @@ Returns interesting summary statistics for the organization.
 
 ### HTTP Request
 
-`GET https://api.fossa.io/api/organization/stats`
+`GET https://app.fossa.io/api/organization/stats`
 
 ## Search Components
 
 ```bash
-http 'http://api.fossa.io/api/organization/search' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/organization/search' 'Authorization: token 123456789'
 ```
 
 > Returns data in shape of:
@@ -424,7 +424,7 @@ whether an issue has been resolved.
 
 ### HTTP Request
 
-`GET https://api.fossa.io/api/organization/search`
+`GET https://app.fossa.io/api/organization/search`
 
 ### Query parameters
 
@@ -436,7 +436,7 @@ whether an issue has been resolved.
 ## Scan Components
 
 ```bash
-http 'http://api.fossa.io/api/organization/scan' 'Authorization: token 123456789'
+http 'https://app.fossa.io/api/organization/scan' 'Authorization: token 123456789'
 ```
 
 > Returns the number of scanned projects.
@@ -451,4 +451,4 @@ adopted a new policy.
 
 ### HTTP Request
 
-`GET https://api.fossa.io/api/organization/scan`
+`GET https://app.fossa.io/api/organization/scan`
